@@ -1,0 +1,6 @@
+{
+  "name": "Orbit B-Hyve BLE",
+  "render_readme": true,
+  "homeassistant": "2024.6.0",
+  "country": ["US"]
+}

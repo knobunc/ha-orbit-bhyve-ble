@@ -1,0 +1,8657 @@
+{
+  "OrbitPbApi_Version": {
+    "edition": "proto2",
+    "values": {
+      "version": 1
+    }
+  },
+  "OrbitPbApi_SecType": {
+    "edition": "proto2",
+    "values": {
+      "open": 0,
+      "wpa1": 1,
+      "wpa2": 2,
+      "wep": 3,
+      "wpaMixed": 4,
+      "unknown": 5,
+      "wpa3": 6,
+      "wpa2Wpa3Mixed": 7
+    }
+  },
+  "OrbitPbApi_WifiBand": {
+    "edition": "proto2",
+    "values": {
+      "wifiBand_2_4_gHz": 0,
+      "wifiBand_5_gHz": 1
+    }
+  },
+  "OrbitPbApi_TestMode": {
+    "edition": "proto2",
+    "values": {
+      "none": 0,
+      "fastTimerTick": 1,
+      "testModeManual": 2,
+      "testModeAuto": 3,
+      "testModeMfr": 4,
+      "testModeRadioRf": 5
+    }
+  },
+  "OrbitPbApi_ProgramId": {
+    "edition": "proto2",
+    "values": {
+      "manual": 0,
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "e": 5,
+      "f": 6
+    }
+  },
+  "OrbitPbApi_ProgramTypes": {
+    "edition": "proto2",
+    "values": {
+      "dayOfWeek": 0,
+      "interval": 1,
+      "even": 2,
+      "odd": 3,
+      "runOnce": 4
+    }
+  },
+  "OrbitPbApi_DeviceStatus": {
+    "edition": "proto2",
+    "values": {
+      "deviceOff": 0,
+      "deviceIdle": 1,
+      "lowBattery": 2,
+      "rainDelayEnabled": 3,
+      "wateringInProgress": 4,
+      "meshDeviceOffline": 5
+    }
+  },
+  "OrbitPbApi_InterfaceId": {
+    "edition": "proto2",
+    "values": {
+      "localInterface": 0,
+      "bleInterface": 1,
+      "wifiInterface": 2,
+      "cellularInterface": 3,
+      "ethernetInterface": 4,
+      "lorawanInterface": 5
+    }
+  },
+  "OrbitPbApi_LogId": {
+    "edition": "proto2",
+    "values": {
+      "waterEventLog": 0
+    }
+  },
+  "OrbitPbApi_StationId": {
+    "edition": "proto2",
+    "values": {
+      "delayStationId": 999
+    }
+  },
+  "OrbitPbApi_StationInfo": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "runTimeSec": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 2
+      },
+      "groupId": {
+        "type": "uint32",
+        "id": 3
+      },
+      "bridgeId": {
+        "type": "bytes",
+        "id": 4
+      },
+      "meshDeviceId": {
+        "type": "uint32",
+        "id": 5
+      },
+      "type": {
+        "type": "Type",
+        "id": 10
+      },
+      "sequenceId": {
+        "type": "uint32",
+        "id": 11
+      }
+    },
+    "nested": {
+      "Type": {
+        "values": {
+          "station": 0,
+          "soak": 1,
+          "scheduleSyncDelay": 2
+        }
+      }
+    }
+  },
+  "OrbitPbApi_ProgramType_NotSet": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_ProgramType_DayOfWeek": {
+    "edition": "proto2",
+    "fields": {
+      "dayFlags": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_ProgramType_Interval": {
+    "edition": "proto2",
+    "fields": {
+      "intervalDays": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "intervalStartTimeIso8601": {
+        "type": "string",
+        "id": 2,
+        "options": {
+          "deprecated": true
+        }
+      }
+    }
+  },
+  "OrbitPbApi_ProgramType_Even": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_ProgramType_Odd": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_ProgramType_RunOnce": {
+    "edition": "proto2",
+    "fields": {
+      "programFlags": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_KeepAlive": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_SyncRequest": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_CloseConnection": {
+    "edition": "proto2",
+    "fields": {
+      "reconnectTimeSec": {
+        "type": "uint32",
+        "id": 1
+      },
+      "resetTestMode": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_ManualModeParams": {
+    "edition": "proto2",
+    "fields": {
+      "startTimeIso8601": {
+        "type": "string",
+        "id": 1
+      },
+      "activeProgramFlags": {
+        "type": "uint32",
+        "id": 2
+      },
+      "stationInfo": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_StationInfo",
+        "id": 3
+      },
+      "startTimeSecEpochUtc": {
+        "type": "uint32",
+        "id": 4
+      },
+      "groupWateringPreDelaySec": {
+        "type": "uint32",
+        "id": 5
+      },
+      "groupWateringPostDelaySec": {
+        "type": "uint32",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbApi_TimerMode": {
+    "edition": "proto2",
+    "fields": {
+      "mode": {
+        "rule": "required",
+        "type": "Mode",
+        "id": 1
+      },
+      "manualModeParams": {
+        "type": "OrbitPbApi_ManualModeParams",
+        "id": 2
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "offMode": 0,
+          "autoMode": 1,
+          "manualMode": 2
+        }
+      }
+    }
+  },
+  "OrbitPbApi_ProgramDelayType": {
+    "edition": "proto2",
+    "values": {
+      "programDelayType_none": 0,
+      "programDelayType_user": 1,
+      "programDelayType_rain": 2,
+      "programDelayType_wind": 3,
+      "programDelayType_freeze": 4
+    }
+  },
+  "OrbitPbApi_SetRainDelay": {
+    "edition": "proto2",
+    "fields": {
+      "rainDelayTimeMins": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "delayStartTimeSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "delayEndTimeSecEpochUtc": {
+        "type": "uint32",
+        "id": 3
+      },
+      "delayType": {
+        "type": "OrbitPbApi_ProgramDelayType",
+        "id": 4
+      },
+      "sensorStatus": {
+        "rule": "repeated",
+        "type": "SensorStatus",
+        "id": 5,
+        "options": {
+          "deprecated": true
+        }
+      }
+    },
+    "nested": {
+      "SensorStatus": {
+        "values": {
+          "sensorDisabled": 0,
+          "sensorOpen": 1,
+          "sensorClosed": 2
+        }
+      }
+    }
+  },
+  "OrbitPbApi_SensorType": {
+    "edition": "proto2",
+    "values": {
+      "sensorType_unknown": 0,
+      "sensorType_rain": 1
+    }
+  },
+  "OrbitPbApi_RainSensor": {
+    "edition": "proto2",
+    "fields": {
+      "status": {
+        "type": "Status",
+        "id": 1
+      }
+    },
+    "nested": {
+      "Status": {
+        "values": {
+          "disabled": 0,
+          "notRaining": 1,
+          "raining": 2
+        }
+      }
+    }
+  },
+  "OrbitPbApi_SensorInfo": {
+    "edition": "proto2",
+    "oneofs": {
+      "status": {
+        "oneof": [
+          "rainSensor"
+        ]
+      }
+    },
+    "fields": {
+      "type": {
+        "type": "OrbitPbApi_SensorType",
+        "id": 1
+      },
+      "sensorId": {
+        "type": "uint32",
+        "id": 3
+      },
+      "rainSensor": {
+        "type": "OrbitPbApi_RainSensor",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_Sensor": {
+    "edition": "proto2",
+    "fields": {
+      "sensorInfo": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_SensorInfo",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_PumpCfgEntry": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "pumpStartDelaySec": {
+        "type": "uint32",
+        "id": 2
+      },
+      "pumpInterZoneDelaySec": {
+        "type": "uint32",
+        "id": 3
+      },
+      "maxRunTillRechargeSec": {
+        "type": "uint32",
+        "id": 4
+      },
+      "rechargeFillDelaySec": {
+        "type": "uint32",
+        "id": 5
+      }
+    }
+  },
+  "OrbitPbApi_PumpCfg": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_PumpCfgEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetPumpCfg": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_StationCfgEntry": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "stationName": {
+        "type": "string",
+        "id": 2
+      },
+      "pumpIds": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 3
+      },
+      "flowSensorIds": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 4
+      },
+      "sensorIds": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 6
+      },
+      "highFlowThresholdGpm": {
+        "type": "float",
+        "id": 7
+      },
+      "lowFlowThresholdGpm": {
+        "type": "float",
+        "id": 8
+      },
+      "highFlowFaultThresholdGpm": {
+        "type": "float",
+        "id": 9
+      },
+      "lowFlowFaultThresholdGpm": {
+        "type": "float",
+        "id": 10
+      },
+      "pumpPressureSetPointPa": {
+        "type": "float",
+        "id": 11
+      },
+      "pipeFillTimeSec": {
+        "type": "uint32",
+        "id": 12
+      }
+    },
+    "reserved": [
+      [
+        5,
+        5
+      ]
+    ]
+  },
+  "OrbitPbApi_StationCfg": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_StationCfgEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SetStationCfg": {
+    "edition": "proto2",
+    "fields": {
+      "stationCfg": {
+        "type": "OrbitPbApi_StationCfg",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetStationCfg": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_SetDateTime": {
+    "edition": "proto2",
+    "fields": {
+      "currentTimeIso8601": {
+        "rule": "required",
+        "type": "string",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SetEpochTime": {
+    "edition": "proto2",
+    "fields": {
+      "timeSecEpochUTC": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timezoneOffsetSec": {
+        "type": "int32",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_RequestTime": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_ScheduledMode": {
+    "edition": "proto2",
+    "fields": {
+      "turnOnDaySecEpochUtc": {
+        "type": "uint32",
+        "id": 1
+      },
+      "turnOnRepeatAnnually": {
+        "type": "bool",
+        "id": 2
+      },
+      "turnOffDaySecEpochUtc": {
+        "type": "uint32",
+        "id": 3
+      },
+      "turnOffRepeatAnnually": {
+        "type": "bool",
+        "id": 4
+      }
+    }
+  },
+  "OrbitPbApi_SetScheduledMode": {
+    "edition": "proto2",
+    "fields": {
+      "scheduledMode": {
+        "type": "OrbitPbApi_ScheduledMode",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetScheduledMode": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_GetProgramSchedule": {
+    "edition": "proto2",
+    "fields": {
+      "programId": {
+        "rule": "required",
+        "type": "OrbitPbApi_ProgramId",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SetProgramSchedule": {
+    "edition": "proto2",
+    "oneofs": {
+      "programType": {
+        "oneof": [
+          "programTypeNotSet",
+          "programTypeDayOfWeek",
+          "programTypeInterval",
+          "programTypeOdd",
+          "programTypeEven",
+          "programTypeRunOnce"
+        ]
+      }
+    },
+    "fields": {
+      "programId": {
+        "rule": "required",
+        "type": "OrbitPbApi_ProgramId",
+        "id": 1
+      },
+      "databaseId": {
+        "type": "uint32",
+        "id": 20
+      },
+      "lastChangeDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 13
+      },
+      "lastChangeId": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 14
+      },
+      "programTypeNotSet": {
+        "type": "OrbitPbApi_ProgramType_NotSet",
+        "id": 2
+      },
+      "programTypeDayOfWeek": {
+        "type": "OrbitPbApi_ProgramType_DayOfWeek",
+        "id": 3
+      },
+      "programTypeInterval": {
+        "type": "OrbitPbApi_ProgramType_Interval",
+        "id": 4
+      },
+      "programTypeOdd": {
+        "type": "OrbitPbApi_ProgramType_Odd",
+        "id": 5
+      },
+      "programTypeEven": {
+        "type": "OrbitPbApi_ProgramType_Even",
+        "id": 6
+      },
+      "programTypeRunOnce": {
+        "type": "OrbitPbApi_ProgramType_RunOnce",
+        "id": 7
+      },
+      "startTimesMinsFromMidnight": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 8
+      },
+      "stationInfo": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_StationInfo",
+        "id": 9
+      },
+      "budgetPercent": {
+        "type": "uint32",
+        "id": 10
+      },
+      "startDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 11,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "stopDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 12,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "groupWateringPreDelaySec": {
+        "type": "uint32",
+        "id": 15
+      },
+      "groupWateringPostDelaySec": {
+        "type": "uint32",
+        "id": 16
+      },
+      "programName": {
+        "type": "string",
+        "id": 17
+      },
+      "intervalHours": {
+        "type": "uint32",
+        "id": 18
+      },
+      "basicProgramMode": {
+        "type": "bool",
+        "id": 19
+      },
+      "originDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 21
+      },
+      "endDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 22
+      }
+    }
+  },
+  "OrbitPbApi_ProgramSchedule": {
+    "edition": "proto2",
+    "oneofs": {
+      "programType": {
+        "oneof": [
+          "programTypeNotSet",
+          "programTypeDayOfWeek",
+          "programTypeInterval",
+          "programTypeOdd",
+          "programTypeEven",
+          "programTypeRunOnce"
+        ]
+      }
+    },
+    "fields": {
+      "programId": {
+        "rule": "required",
+        "type": "OrbitPbApi_ProgramId",
+        "id": 1
+      },
+      "databaseId": {
+        "type": "uint32",
+        "id": 20
+      },
+      "lastChangeDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 13
+      },
+      "lastChangeId": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 14
+      },
+      "programTypeNotSet": {
+        "type": "OrbitPbApi_ProgramType_NotSet",
+        "id": 2
+      },
+      "programTypeDayOfWeek": {
+        "type": "OrbitPbApi_ProgramType_DayOfWeek",
+        "id": 3
+      },
+      "programTypeInterval": {
+        "type": "OrbitPbApi_ProgramType_Interval",
+        "id": 4
+      },
+      "programTypeOdd": {
+        "type": "OrbitPbApi_ProgramType_Odd",
+        "id": 5
+      },
+      "programTypeEven": {
+        "type": "OrbitPbApi_ProgramType_Even",
+        "id": 6
+      },
+      "programTypeRunOnce": {
+        "type": "OrbitPbApi_ProgramType_RunOnce",
+        "id": 7
+      },
+      "startTimesMinsFromMidnight": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 8
+      },
+      "stationInfo": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_StationInfo",
+        "id": 9
+      },
+      "budgetPercent": {
+        "type": "uint32",
+        "id": 10
+      },
+      "startDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 11,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "stopDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 12,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "groupWateringPreDelaySec": {
+        "type": "uint32",
+        "id": 15
+      },
+      "groupWateringPostDelaySec": {
+        "type": "uint32",
+        "id": 16
+      },
+      "programName": {
+        "type": "string",
+        "id": 17
+      },
+      "intervalHours": {
+        "type": "uint32",
+        "id": 18
+      },
+      "basicProgramMode": {
+        "type": "bool",
+        "id": 19
+      },
+      "originDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 21
+      },
+      "endDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 22
+      }
+    }
+  },
+  "OrbitPbApi_GetActivePrograms": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_SetActivePrograms": {
+    "edition": "proto2",
+    "fields": {
+      "activeProgramFlags": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "lastChangeDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "lastChangeId": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 3
+      }
+    }
+  },
+  "OrbitPbApi_ActivePrograms": {
+    "edition": "proto2",
+    "fields": {
+      "activeProgramFlags": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "lastChangeDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "lastChangeId": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 3
+      }
+    }
+  },
+  "OrbitPbApi_ProgramSchedules": {
+    "edition": "proto2",
+    "fields": {
+      "setActivePrograms": {
+        "type": "OrbitPbApi_SetActivePrograms",
+        "id": 1
+      },
+      "programs": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_SetProgramSchedule",
+        "id": 2
+      }
+    }
+  },
+  "OrbitApApi_ConcurrentPrograms": {
+    "edition": "proto2",
+    "fields": {
+      "programs": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_ProgramId",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SetConcurrentProgramGroups": {
+    "edition": "proto2",
+    "fields": {
+      "groups": {
+        "rule": "repeated",
+        "type": "OrbitApApi_ConcurrentPrograms",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetConcurrentProgramGroups": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_ReportConcurrentProgramGroups": {
+    "edition": "proto2",
+    "fields": {
+      "groups": {
+        "rule": "repeated",
+        "type": "OrbitApApi_ConcurrentPrograms",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SkipCurrentStation": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SkipWaterInstance": {
+    "edition": "proto2",
+    "fields": {
+      "instanceId": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SkipWaterEvent": {
+    "edition": "proto2",
+    "fields": {
+      "sessionId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "waterEventIndex": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_GetDeviceInfo": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_DeviceInfo": {
+    "edition": "proto2",
+    "fields": {
+      "numStations": {
+        "type": "int32",
+        "id": 1
+      },
+      "hwVersion": {
+        "type": "string",
+        "id": 2
+      },
+      "fwVersion": {
+        "type": "string",
+        "id": 3
+      },
+      "wifiVersion": {
+        "type": "uint32",
+        "id": 4
+      },
+      "powerBoardId": {
+        "type": "PowerBoardId",
+        "id": 5
+      },
+      "testState": {
+        "type": "uint32",
+        "id": 6
+      },
+      "pumpEnabled": {
+        "type": "bool",
+        "id": 7
+      },
+      "stationsEnabledFlags_0_31": {
+        "type": "uint32",
+        "id": 8
+      },
+      "stationsEnabledFlags_32_63": {
+        "type": "uint32",
+        "id": 9
+      },
+      "deviceType": {
+        "type": "DeviceType",
+        "id": 10
+      },
+      "bootloaderVersion": {
+        "type": "uint32",
+        "id": 11
+      },
+      "hasMfiSetupCode": {
+        "type": "bool",
+        "id": 12
+      },
+      "bleStatus": {
+        "type": "BleStatus",
+        "id": 13
+      },
+      "bleBootloaderVersion": {
+        "type": "uint32",
+        "id": 14
+      },
+      "bleAppVersion": {
+        "type": "uint32",
+        "id": 15
+      },
+      "bleSdkVersion": {
+        "type": "uint32",
+        "id": 16
+      },
+      "rl78Version": {
+        "type": "uint32",
+        "id": 17
+      },
+      "mfrTestStatus": {
+        "type": "OrbitPbApi_MfrTest_DutTestStatus",
+        "id": 18
+      },
+      "pumpEnabledFlags": {
+        "type": "uint32",
+        "id": 19
+      }
+    },
+    "nested": {
+      "PowerBoardId": {
+        "values": {
+          "orbit6Station": 0,
+          "orbit12Station": 1,
+          "pro8Station": 2,
+          "pro16Station": 3,
+          "international6Station": 4,
+          "international12Station": 5,
+          "unknown": 6
+        }
+      },
+      "DeviceType": {
+        "values": {
+          "hosetapTimer": 0,
+          "undergroundTimer": 1,
+          "rainSensor": 2,
+          "moistureSensor": 3
+        }
+      },
+      "BleStatus": {
+        "values": {
+          "bleUninitialized": 0,
+          "bleUpdating": 1,
+          "bleInitialized": 2,
+          "bleError": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_LogEntry_WaterEvent": {
+    "edition": "proto2",
+    "fields": {
+      "programId": {
+        "type": "OrbitPbApi_ProgramId",
+        "id": 3
+      },
+      "databaseId": {
+        "type": "uint32",
+        "id": 9
+      },
+      "stationId": {
+        "type": "uint32",
+        "id": 4
+      },
+      "stationRunTimeSec": {
+        "type": "uint32",
+        "id": 5
+      },
+      "eventStatus": {
+        "type": "WaterEventStatus",
+        "id": 6
+      },
+      "waterVolumeGallons": {
+        "type": "uint32",
+        "id": 7
+      },
+      "meshDeviceId": {
+        "type": "uint32",
+        "id": 8
+      }
+    },
+    "nested": {
+      "WaterEventStatus": {
+        "values": {
+          "stationCompleted": 0,
+          "stationSkipped": 1,
+          "stationFault": 2,
+          "unknown": 3,
+          "unresponsive": 4
+        }
+      }
+    }
+  },
+  "OrbitPbApi_GetEventLog": {
+    "edition": "proto2",
+    "fields": {
+      "logId": {
+        "type": "OrbitPbApi_LogId",
+        "id": 1
+      },
+      "lastLogTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 2
+      },
+      "lastLogIndex": {
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "OrbitPbApi_LogEntry": {
+    "edition": "proto2",
+    "oneofs": {
+      "message": {
+        "oneof": [
+          "waterEventLogEntry"
+        ]
+      }
+    },
+    "fields": {
+      "logTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 1
+      },
+      "logIndex": {
+        "type": "uint32",
+        "id": 2
+      },
+      "waterEventLogEntry": {
+        "type": "OrbitPbApi_LogEntry_WaterEvent",
+        "id": 10
+      }
+    }
+  },
+  "OrbitPbApi_EventLog": {
+    "edition": "proto2",
+    "fields": {
+      "noMoreEntries": {
+        "type": "bool",
+        "id": 1
+      },
+      "waterEventLogEntries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_LogEntry",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_GetWaterEventLog": {
+    "edition": "proto2",
+    "fields": {
+      "logTimestampIso8601": {
+        "rule": "required",
+        "type": "string",
+        "id": 1
+      },
+      "lastLogIndex": {
+        "type": "uint32",
+        "id": 2
+      },
+      "lastLogTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "OrbitPbApi_WaterEventLogEntry": {
+    "edition": "proto2",
+    "fields": {
+      "logTimestampIso8601": {
+        "rule": "required",
+        "type": "string",
+        "id": 1
+      },
+      "logIndex": {
+        "type": "uint32",
+        "id": 2
+      },
+      "programId": {
+        "type": "OrbitPbApi_ProgramId",
+        "id": 3
+      },
+      "databaseId": {
+        "type": "uint32",
+        "id": 10
+      },
+      "stationId": {
+        "type": "uint32",
+        "id": 4
+      },
+      "stationRunTimeSec": {
+        "type": "uint32",
+        "id": 5
+      },
+      "eventStatus": {
+        "type": "WaterEventStatus",
+        "id": 6
+      },
+      "waterVolumeGallons": {
+        "type": "uint32",
+        "id": 7
+      },
+      "meshDeviceId": {
+        "type": "uint32",
+        "id": 8
+      },
+      "logTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 9
+      },
+      "concurrentStationIds": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 11
+      }
+    },
+    "nested": {
+      "WaterEventStatus": {
+        "values": {
+          "stationCompleted": 0,
+          "stationSkipped": 1,
+          "stationFault": 2,
+          "unknown": 3,
+          "unresponsive": 4
+        }
+      }
+    }
+  },
+  "OrbitPbApi_WaterEventLog": {
+    "edition": "proto2",
+    "fields": {
+      "waterEventLogEntries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_WaterEventLogEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetDeviceStatusInfo": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_GetBatteryStatus": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_BatteryStatus": {
+    "edition": "proto2",
+    "fields": {
+      "state": {
+        "type": "BatteryState",
+        "id": 1
+      },
+      "batteryLevelPercent": {
+        "type": "uint32",
+        "id": 2
+      },
+      "batteryLevelMV": {
+        "type": "uint32",
+        "id": 3
+      },
+      "externallyPowered": {
+        "type": "bool",
+        "id": 4
+      }
+    },
+    "nested": {
+      "BatteryState": {
+        "values": {
+          "charging": 0
+        }
+      }
+    }
+  },
+  "OrbitPbApi_IdentifyDevice": {
+    "edition": "proto2",
+    "fields": {
+      "identifyTimeSec": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "identifyPeriodMs": {
+        "type": "uint32",
+        "id": 2
+      },
+      "identifySequence": {
+        "rule": "repeated",
+        "type": "Sequence",
+        "id": 3
+      }
+    },
+    "nested": {
+      "Sequence": {
+        "fields": {
+          "colorFlags": {
+            "type": "uint32",
+            "id": 1
+          },
+          "durationMs": {
+            "type": "uint32",
+            "id": 2
+          }
+        },
+        "nested": {
+          "Color": {
+            "values": {
+              "red": 0,
+              "green": 1,
+              "blue": 2
+            }
+          }
+        }
+      }
+    }
+  },
+  "OrbitPbApi_GetManualPresetRunTime": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_ManualPresetRunTime": {
+    "edition": "proto2",
+    "fields": {
+      "presetRunTimeSec": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetStationValveStatus": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_StationValveStatus": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "status": {
+        "type": "ValveStatus",
+        "id": 2
+      },
+      "runTimeSec": {
+        "type": "uint32",
+        "id": 3
+      }
+    },
+    "nested": {
+      "ValveStatus": {
+        "values": {
+          "off": 0,
+          "chargingOnPulse1": 1,
+          "chargingOnPulse2": 2,
+          "on": 3,
+          "chargingOffPulse1": 4,
+          "chargingOffPulse2": 5
+        }
+      }
+    }
+  },
+  "OrbitPbApi_DeviceControl": {
+    "edition": "proto2",
+    "fields": {},
+    "nested": {
+      "ControlCommand": {
+        "values": {
+          "stopWatering": 0,
+          "skipCurrentStation": 1,
+          "runProgramsManually": 2,
+          "runAllStationsManually": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_SetNetworkEncKey": {
+    "edition": "proto2",
+    "fields": {
+      "networkEncKey": {
+        "rule": "required",
+        "type": "bytes",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_FlowSensorParamEntry": {
+    "edition": "proto2",
+    "fields": {
+      "kValue": {
+        "type": "float",
+        "id": 1
+      },
+      "offset": {
+        "type": "float",
+        "id": 2
+      },
+      "flowSensorId": {
+        "type": "uint32",
+        "id": 3
+      },
+      "unscheduledFlowThresholdGpm": {
+        "type": "float",
+        "id": 4
+      }
+    }
+  },
+  "OrbitPbApi_FlowSensorParams": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_FlowSensorParamEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetFlowSensorParams": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_EnableFlowSensorData": {
+    "edition": "proto2",
+    "fields": {
+      "sendDataIntervalMilliSec": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "sendDataDurationSec": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_GetFlowSensorData": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_CurrentFlowSensorDataEntry": {
+    "edition": "proto2",
+    "fields": {
+      "flowRateFrequency_Hz": {
+        "type": "uint32",
+        "id": 1
+      },
+      "cycleRunTimeSec": {
+        "type": "uint32",
+        "id": 2
+      },
+      "cycleVolumeTicks": {
+        "type": "uint32",
+        "id": 3
+      },
+      "flowRateGpm": {
+        "type": "float",
+        "id": 4
+      },
+      "cycleVolumeGal": {
+        "type": "float",
+        "id": 5
+      },
+      "flowSensorId": {
+        "type": "uint32",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbApi_FlowSensorData": {
+    "edition": "proto2",
+    "fields": {
+      "currentFlowRateFrequency_Hz": {
+        "type": "uint32",
+        "id": 1
+      },
+      "currentCycleRunTimeSec": {
+        "type": "uint32",
+        "id": 2
+      },
+      "currentCycleVolumeTicks": {
+        "type": "uint32",
+        "id": 3
+      },
+      "currentFlowRateGpm": {
+        "type": "float",
+        "id": 4
+      },
+      "currentCycleVolumeGal": {
+        "type": "float",
+        "id": 5
+      },
+      "flowSensorDataEntries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_CurrentFlowSensorDataEntry",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbApi_GetMfiSaltVerifier": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_MfiSaltVerifier": {
+    "edition": "proto2",
+    "fields": {
+      "salt": {
+        "rule": "required",
+        "type": "bytes",
+        "id": 1
+      },
+      "verifier": {
+        "rule": "required",
+        "type": "bytes",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_ConfigureDevice": {
+    "edition": "proto2",
+    "fields": {
+      "meshDeviceId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "meshNetworkKey": {
+        "type": "bytes",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_GetHomeKitParams": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_SetHomeKitParams": {
+    "edition": "proto2",
+    "fields": {
+      "enableWac": {
+        "type": "bool",
+        "id": 1
+      },
+      "clearHomekitProvisioning": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_HomeKitParams": {
+    "edition": "proto2",
+    "fields": {
+      "wacEnabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "homeKitProvisioned": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_WateringEvent": {
+    "edition": "proto2",
+    "fields": {
+      "programId": {
+        "rule": "required",
+        "type": "OrbitPbApi_ProgramId",
+        "id": 1
+      },
+      "databaseId": {
+        "type": "uint32",
+        "id": 4
+      },
+      "stationId": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 2
+      },
+      "runTimeSec": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 3
+      },
+      "eventType": {
+        "type": "EventType",
+        "id": 5
+      }
+    },
+    "nested": {
+      "EventType": {
+        "values": {
+          "wateringInProgress": 1,
+          "programPreDelay": 2,
+          "programPostDelay": 3,
+          "soak": 4,
+          "scheduleSyncDelay": 5
+        }
+      }
+    }
+  },
+  "OrbitPbApi_WateringStatus": {
+    "edition": "proto2",
+    "fields": {
+      "status": {
+        "rule": "required",
+        "type": "Status",
+        "id": 1
+      },
+      "rainSensorHold": {
+        "type": "bool",
+        "id": 2
+      },
+      "currentProgramId": {
+        "type": "OrbitPbApi_ProgramId",
+        "id": 3
+      },
+      "currentStationId": {
+        "type": "uint32",
+        "id": 4
+      },
+      "currentTimeRemainingSec": {
+        "type": "uint32",
+        "id": 5
+      },
+      "waterEventQueue": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_WateringEvent",
+        "id": 6
+      },
+      "totalRunTimeSec": {
+        "type": "uint32",
+        "id": 7
+      },
+      "databaseId": {
+        "type": "uint32",
+        "id": 9
+      },
+      "runtimeIndex": {
+        "type": "uint32",
+        "id": 10
+      },
+      "sessionId": {
+        "type": "uint32",
+        "id": 11
+      },
+      "waterInstanceId": {
+        "type": "uint32",
+        "id": 12
+      },
+      "waterEventIndex": {
+        "type": "uint32",
+        "id": 13
+      },
+      "waterInstanceStartSecEpochUtc": {
+        "type": "uint32",
+        "id": 14
+      }
+    },
+    "reserved": [
+      [
+        8,
+        8
+      ]
+    ],
+    "nested": {
+      "Status": {
+        "values": {
+          "wateringComplete": 1,
+          "wateringInProgress": 2,
+          "pumpDelay": 3,
+          "stationComplete": 4,
+          "stationDelay": 5,
+          "programPreDelay": 6,
+          "programPostDelay": 7
+        }
+      }
+    }
+  },
+  "OrbitPbApi_WateringStatusSummary": {
+    "edition": "proto2",
+    "fields": {
+      "sessions": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_WateringStatus",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetWateringStatus": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_FaultType_Unavailable": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_FaultType_ShortCircuit": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_FaultType_Overcurrent": {
+    "edition": "proto2",
+    "fields": {
+      "currentMA": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_FaultType_Undercurrent": {
+    "edition": "proto2",
+    "fields": {
+      "currentMA": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_FaultType_Undervoltage": {
+    "edition": "proto2",
+    "fields": {
+      "voltageMV": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_FaultType_NoFlow": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_FaultType_HighFlow": {
+    "edition": "proto2",
+    "fields": {
+      "flowGpm": {
+        "type": "float",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_FaultType_LowFlow": {
+    "edition": "proto2",
+    "fields": {
+      "flowGpm": {
+        "type": "float",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_FaultType_UnscheduledFlow": {
+    "edition": "proto2",
+    "fields": {
+      "flowGpm": {
+        "type": "float",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_PumpFault": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timestampSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "unavailable": {
+        "type": "OrbitPbApi_FaultType_Unavailable",
+        "id": 11
+      },
+      "shortCircuit": {
+        "type": "OrbitPbApi_FaultType_ShortCircuit",
+        "id": 12
+      },
+      "overcurrent": {
+        "type": "OrbitPbApi_FaultType_Overcurrent",
+        "id": 13
+      },
+      "undercurrent": {
+        "type": "OrbitPbApi_FaultType_Undercurrent",
+        "id": 14
+      }
+    }
+  },
+  "OrbitPbApi_StationFault": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timestampSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "unavailable": {
+        "type": "OrbitPbApi_FaultType_Unavailable",
+        "id": 11
+      },
+      "shortCircuit": {
+        "type": "OrbitPbApi_FaultType_ShortCircuit",
+        "id": 12
+      },
+      "overcurrent": {
+        "type": "OrbitPbApi_FaultType_Overcurrent",
+        "id": 13
+      },
+      "undercurrent": {
+        "type": "OrbitPbApi_FaultType_Undercurrent",
+        "id": 14
+      },
+      "noFlow": {
+        "type": "OrbitPbApi_FaultType_NoFlow",
+        "id": 15
+      },
+      "highFlow": {
+        "type": "OrbitPbApi_FaultType_HighFlow",
+        "id": 16
+      },
+      "lowFlow": {
+        "type": "OrbitPbApi_FaultType_LowFlow",
+        "id": 17
+      }
+    }
+  },
+  "OrbitPbApi_MainlineFault": {
+    "edition": "proto2",
+    "fields": {
+      "mainlineId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timestampSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "noFlow": {
+        "type": "OrbitPbApi_FaultType_NoFlow",
+        "id": 11
+      },
+      "highFlow": {
+        "type": "OrbitPbApi_FaultType_HighFlow",
+        "id": 12
+      },
+      "lowFlow": {
+        "type": "OrbitPbApi_FaultType_LowFlow",
+        "id": 13
+      },
+      "unscheduledFlow": {
+        "type": "OrbitPbApi_FaultType_UnscheduledFlow",
+        "id": 14
+      }
+    }
+  },
+  "OrbitPbApi_FaultStatus": {
+    "edition": "proto2",
+    "fields": {
+      "pumpFault": {
+        "type": "bool",
+        "id": 1
+      },
+      "stationFaultFlags_0_31": {
+        "type": "uint32",
+        "id": 2
+      },
+      "stationFaultFlags_32_63": {
+        "type": "uint32",
+        "id": 3
+      },
+      "voltageBoostCircuitFail": {
+        "type": "bool",
+        "id": 4
+      },
+      "valveOffFlowDetected": {
+        "type": "bool",
+        "id": 5
+      },
+      "valveOnNoFlowDetected": {
+        "type": "bool",
+        "id": 6
+      },
+      "valveLowFlowDetected": {
+        "type": "bool",
+        "id": 7
+      },
+      "valveHighFlowDetected": {
+        "type": "bool",
+        "id": 8
+      },
+      "smartAccessoryFaultFlags": {
+        "type": "uint32",
+        "id": 9
+      },
+      "batteryFault": {
+        "type": "bool",
+        "id": 10
+      },
+      "pumpFaults": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_PumpFault",
+        "id": 15
+      },
+      "stationFaults": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_StationFault",
+        "id": 16
+      },
+      "mainlineFaults": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_MainlineFault",
+        "id": 17
+      }
+    }
+  },
+  "OrbitPbApi_DeviceStatusInfo": {
+    "edition": "proto2",
+    "fields": {
+      "deviceStatus": {
+        "rule": "required",
+        "type": "OrbitPbApi_DeviceStatus",
+        "id": 1
+      },
+      "timerMode": {
+        "type": "OrbitPbApi_TimerMode",
+        "id": 2
+      },
+      "batteryLevelPercent": {
+        "type": "uint32",
+        "id": 3,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "nextStartTime": {
+        "type": "OrbitPbApi_NextStartTime",
+        "id": 4,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "rainDelayTimeRemainingMins": {
+        "type": "uint32",
+        "id": 5,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "wateringStatus": {
+        "type": "OrbitPbApi_WateringStatus",
+        "id": 6,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "faultStatus": {
+        "type": "OrbitPbApi_FaultStatus",
+        "id": 7
+      },
+      "wacModeEnabled": {
+        "type": "bool",
+        "id": 8
+      },
+      "nextStartProgramFlags": {
+        "type": "uint32",
+        "id": 9
+      },
+      "nextStartTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 10
+      },
+      "batteryLevelMV": {
+        "type": "uint32",
+        "id": 11,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "programDelayType": {
+        "type": "OrbitPbApi_ProgramDelayType",
+        "id": 12,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "rainDelay": {
+        "type": "OrbitPbApi_SetRainDelay",
+        "id": 13
+      },
+      "batteryStatus": {
+        "type": "OrbitPbApi_BatteryStatus",
+        "id": 14
+      },
+      "lastLogEntryTime": {
+        "type": "OrbitPbApi_LogEntry",
+        "id": 15
+      },
+      "deviceSettingsHash": {
+        "type": "bytes",
+        "id": 16
+      },
+      "sensors": {
+        "type": "OrbitPbApi_Sensor",
+        "id": 17
+      },
+      "wateringStatusSummary": {
+        "type": "OrbitPbApi_WateringStatusSummary",
+        "id": 18
+      }
+    }
+  },
+  "OrbitPbApi_GetNextStartTime": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_NextStartTime": {
+    "edition": "proto2",
+    "fields": {
+      "nextStartTimeIso8601": {
+        "rule": "required",
+        "type": "string",
+        "id": 1
+      },
+      "programFlags": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_GetSettings": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_ZoneTransitionSetting": {
+    "edition": "proto2",
+    "fields": {
+      "type": {
+        "type": "Type",
+        "id": 1
+      },
+      "timeoutSecs": {
+        "type": "uint32",
+        "id": 2
+      }
+    },
+    "nested": {
+      "Type": {
+        "values": {
+          "delay": 2,
+          "overlap": 3,
+          "together": 1
+        }
+      }
+    }
+  },
+  "OrbitPbApi_PumpTransition": {
+    "edition": "proto2",
+    "fields": {
+      "type": {
+        "type": "Type",
+        "id": 1
+      },
+      "timeoutSecs": {
+        "type": "uint32",
+        "id": 2
+      }
+    },
+    "nested": {
+      "Type": {
+        "values": {
+          "together": 1,
+          "pumpFirst": 2,
+          "valveFirst": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_SetSettings": {
+    "edition": "proto2",
+    "fields": {
+      "rainSensorEnabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "serverHostName": {
+        "type": "string",
+        "id": 2
+      },
+      "serverKeepAlivePeriodSec": {
+        "type": "uint32",
+        "id": 3
+      },
+      "serverMaxReconnectBackoffTimeSec": {
+        "type": "uint32",
+        "id": 4
+      },
+      "useExternalAntenna": {
+        "type": "bool",
+        "id": 5
+      },
+      "uiLockoutEnabled": {
+        "type": "bool",
+        "id": 6
+      },
+      "activeUiBrightnessLevelPercent": {
+        "type": "uint32",
+        "id": 7
+      },
+      "idleUiBrightnessLevelPercent": {
+        "type": "uint32",
+        "id": 8
+      },
+      "idleUiTimeoutSec": {
+        "type": "uint32",
+        "id": 9
+      },
+      "uiLightsEnabled": {
+        "type": "bool",
+        "id": 10
+      },
+      "enableDebugOutput": {
+        "type": "bool",
+        "id": 11
+      },
+      "betweenZoneTransition": {
+        "type": "OrbitPbApi_ZoneTransitionSetting",
+        "id": 12
+      },
+      "pumpOnStart": {
+        "type": "OrbitPbApi_PumpTransition",
+        "id": 13
+      },
+      "pumpOnEnd": {
+        "type": "OrbitPbApi_PumpTransition",
+        "id": 14
+      },
+      "serverFallbackIp4": {
+        "type": "uint32",
+        "id": 15
+      },
+      "orbitPbApiPort": {
+        "type": "uint32",
+        "id": 17
+      }
+    },
+    "reserved": [
+      [
+        16,
+        16
+      ]
+    ]
+  },
+  "OrbitPbApi_WeatherForecastDataEntry": {
+    "edition": "proto2",
+    "fields": {
+      "startDateSecEpochUtc": {
+        "type": "uint32",
+        "id": 1
+      },
+      "weatherType": {
+        "type": "WeatherType",
+        "id": 2
+      }
+    },
+    "nested": {
+      "WeatherType": {
+        "values": {
+          "unknown": 1,
+          "sunny": 2,
+          "partlyCloudy": 3,
+          "cloudy": 4,
+          "rain": 5,
+          "snow": 6
+        }
+      }
+    }
+  },
+  "OrbitPbApi_SetWeatherForecastData": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_WeatherForecastDataEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_ApListEntry": {
+    "edition": "proto2",
+    "fields": {
+      "ssid": {
+        "rule": "required",
+        "type": "bytes",
+        "id": 1
+      },
+      "secType": {
+        "rule": "required",
+        "type": "OrbitPbApi_SecType",
+        "id": 2
+      },
+      "name": {
+        "type": "string",
+        "id": 3
+      },
+      "macAddress": {
+        "type": "bytes",
+        "id": 4
+      },
+      "channelNumber": {
+        "type": "uint32",
+        "id": 5
+      },
+      "rssi": {
+        "type": "sint32",
+        "id": 6
+      },
+      "wifiBand": {
+        "type": "OrbitPbApi_WifiBand",
+        "id": 7
+      }
+    }
+  },
+  "OrbitPbApi_GetApList": {
+    "edition": "proto2",
+    "fields": {
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_ApList": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_ApListEntry",
+        "id": 1
+      },
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 2
+      },
+      "macAddress": {
+        "type": "bytes",
+        "id": 3
+      }
+    }
+  },
+  "OrbitPbApi_NetworkConnect": {
+    "edition": "proto2",
+    "fields": {
+      "ssid": {
+        "type": "bytes",
+        "id": 1
+      },
+      "secType": {
+        "type": "OrbitPbApi_SecType",
+        "id": 2
+      },
+      "useDhcp": {
+        "type": "bool",
+        "id": 3
+      },
+      "passphrase": {
+        "type": "bytes",
+        "id": 4
+      },
+      "ipv4Address": {
+        "type": "uint32",
+        "id": 5
+      },
+      "ipv4SubnetMask": {
+        "type": "uint32",
+        "id": 6
+      },
+      "ipv4Gateway": {
+        "type": "uint32",
+        "id": 7
+      },
+      "ipv4PrimaryDns": {
+        "type": "uint32",
+        "id": 8
+      },
+      "ipv4SecondaryDns": {
+        "type": "uint32",
+        "id": 9
+      },
+      "wifiBand": {
+        "type": "OrbitPbApi_WifiBand",
+        "id": 10
+      },
+      "interface": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 11
+      },
+      "cellSettings": {
+        "type": "OrbitPbApi_CellularSettings",
+        "id": 12
+      },
+      "mode": {
+        "type": "NetworkMode",
+        "id": 13
+      }
+    },
+    "nested": {
+      "NetworkMode": {
+        "values": {
+          "normal": 0,
+          "serverInterfaceDisabled": 1
+        }
+      }
+    }
+  },
+  "OrbitPbApi_NetworkDisconnect": {
+    "edition": "proto2",
+    "fields": {
+      "clearNetworkParams": {
+        "type": "bool",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetNetworkStatus": {
+    "edition": "proto2",
+    "fields": {
+      "networkInterface": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_NetworkStatus": {
+    "edition": "proto2",
+    "fields": {
+      "networkInterfaceState": {
+        "rule": "required",
+        "type": "NetworkInterfaceState",
+        "id": 1
+      },
+      "networkInterfaceStatus": {
+        "rule": "required",
+        "type": "NetworkInterfaceStatus",
+        "id": 2
+      },
+      "serverInterfaceState": {
+        "rule": "required",
+        "type": "ServerInterfaceState",
+        "id": 3
+      },
+      "serverInterfaceStatus": {
+        "rule": "required",
+        "type": "ServerInterfaceStatus",
+        "id": 4
+      },
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 5
+      },
+      "networkInterface": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 6
+      },
+      "cellStatus": {
+        "type": "OrbitPbApi_CellularStatus",
+        "id": 7
+      }
+    },
+    "nested": {
+      "NetworkInterfaceState": {
+        "values": {
+          "networkInterfaceState_waitingForInit": 0,
+          "networkInterfaceState_notConfigured": 1,
+          "networkInterfaceState_disconnected": 2,
+          "networkInterfaceState_connecting": 3,
+          "networkInterfaceState_disconnecting": 4,
+          "networkInterfaceState_waitingForDhcp": 5,
+          "networkInterfaceState_connected": 6,
+          "networkInterfaceState_connectedToTestAp": 7,
+          "networkInterfaceState_unknown": 8,
+          "networkInterfaceState_checkingSimCard": 9
+        }
+      },
+      "NetworkInterfaceStatus": {
+        "values": {
+          "networkInterfaceStatus_ok": 0,
+          "networkInterfaceStatus_error_unableToFindAp": 1,
+          "networkInterfaceStatus_error_unableToJoinAp": 2,
+          "networkInterfaceStatus_error_connectingToApTimedOut": 3,
+          "networkInterfaceStatus_error_waitForDhcpTimedOut": 4,
+          "networkInterfaceStatus_error_connectionLost": 5,
+          "networkInterfaceStatus_error_unknown": 6,
+          "networkInterfaceStatus_error_cableUnplugged": 7,
+          "networkInterfaceStatus_error_noSimDetected": 8
+        }
+      },
+      "ServerInterfaceState": {
+        "values": {
+          "serverInterfaceState_notConnected": 0,
+          "serverInterfaceState_retryDelay": 1,
+          "serverInterfaceState_resolvingHostAddress": 2,
+          "serverInterfaceState_openingSocket": 3,
+          "serverInterfaceState_closingSocket": 4,
+          "serverInterfaceState_connected": 5,
+          "serverInterfaceState_connectedToTestServer": 6,
+          "serverInterfaceState_unknown": 7
+        }
+      },
+      "ServerInterfaceStatus": {
+        "values": {
+          "serverInterfaceStatus_ok": 0,
+          "serverInterfaceStatus_error_unableToResolveHostAddress": 1,
+          "serverInterfaceStatus_error_unableToOpenSocket": 2,
+          "serverInterfaceStatus_unknown": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_OtaImageId": {
+    "edition": "proto2",
+    "values": {
+      "otaImageId_fs1": 61462
+    }
+  },
+  "OrbitPbApi_UpdateAvailable": {
+    "edition": "proto2",
+    "fields": {
+      "imageId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "versionString": {
+        "rule": "required",
+        "type": "string",
+        "id": 2
+      },
+      "imageSize": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 3
+      },
+      "updateViaWiFi": {
+        "type": "bool",
+        "id": 4
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 5
+      },
+      "imageUrl": {
+        "type": "string",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbApi_UpdateBlockRequest": {
+    "edition": "proto2",
+    "fields": {
+      "imageId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "versionString": {
+        "rule": "required",
+        "type": "string",
+        "id": 2
+      },
+      "imageSize": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 3
+      },
+      "imageOffset": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 4
+      },
+      "maxBlockSize": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 5
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbApi_UpdateBlockResponse": {
+    "edition": "proto2",
+    "fields": {
+      "imageId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "versionString": {
+        "rule": "required",
+        "type": "string",
+        "id": 2
+      },
+      "imageSize": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 3
+      },
+      "imageOffset": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 4
+      },
+      "blockSize": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 5
+      },
+      "dataBlock": {
+        "rule": "required",
+        "type": "bytes",
+        "id": 6
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 7
+      }
+    }
+  },
+  "OrbitPbApi_UpdateGetProgress": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_UpdateProgress": {
+    "edition": "proto2",
+    "fields": {
+      "imageSize": {
+        "type": "uint32",
+        "id": 1
+      },
+      "imageOffset": {
+        "type": "uint32",
+        "id": 2
+      },
+      "imageId": {
+        "type": "OrbitPbApi_OtaImageId",
+        "id": 3
+      },
+      "imageVersion": {
+        "type": "uint32",
+        "id": 4
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 5
+      }
+    }
+  },
+  "OrbitPbApi_ResetDevice": {
+    "edition": "proto2",
+    "fields": {
+      "factoryReset": {
+        "type": "bool",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_GetSettingsHash": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_SettingsHash": {
+    "edition": "proto2",
+    "fields": {
+      "programAHash": {
+        "type": "bytes",
+        "id": 1
+      },
+      "programBHash": {
+        "type": "bytes",
+        "id": 2
+      },
+      "programCHash": {
+        "type": "bytes",
+        "id": 3
+      },
+      "programDHash": {
+        "type": "bytes",
+        "id": 4
+      },
+      "programEHash": {
+        "type": "bytes",
+        "id": 5
+      },
+      "programFHash": {
+        "type": "bytes",
+        "id": 6
+      },
+      "activeProgramsHash": {
+        "type": "bytes",
+        "id": 7
+      },
+      "programDelayHash": {
+        "type": "bytes",
+        "id": 8
+      },
+      "onboardingCompleteHash": {
+        "type": "bytes",
+        "id": 9
+      },
+      "timezoneOffsetHash": {
+        "type": "bytes",
+        "id": 10
+      },
+      "timerModeHash": {
+        "type": "bytes",
+        "id": 11
+      }
+    }
+  },
+  "OrbitPbApi_MfrTest_WifiTestStatus": {
+    "edition": "proto2",
+    "fields": {
+      "testStatus": {
+        "rule": "required",
+        "type": "bool",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_MfrTest_Hsc_Dio": {
+    "edition": "proto2",
+    "values": {
+      "hsc_dioTest_mod_staRst": 0,
+      "hsc_dioTest_mod_ledRst": 1,
+      "hsc_dioTest_mod_irq": 2,
+      "hsc_dioTest_mod_sda": 3,
+      "hsc_dioTest_mod_scl": 4,
+      "hsc_dioTest_com_io0": 5,
+      "hsc_dioTest_com_io1": 6,
+      "hsc_dioTest_com_irq": 7,
+      "hsc_dioTest_com_spi_cs": 8,
+      "hsc_dioTest_com_spi_clk": 9,
+      "hsc_dioTest_com_spi_mosi": 10,
+      "hsc_dioTest_com_spi_miso": 11
+    }
+  },
+  "OrbitPbApi_MfrTest_GC_Dio": {
+    "edition": "proto2",
+    "values": {
+      "gc_dioTest_com_io0": 0,
+      "gc_dioTest_com_io1": 1,
+      "gc_dioTest_com_irq": 2,
+      "gc_dioTest_com_spi_cs": 3,
+      "gc_dioTest_com_spi_clk": 4,
+      "gc_dioTest_com_spi_mosi": 5,
+      "gc_dioTest_com_spi_miso": 6,
+      "gc_dioTest_poeEn": 7
+    }
+  },
+  "OrbitPbApi_MfrTest_DutTestCommand": {
+    "edition": "proto2",
+    "fields": {
+      "dutId": {
+        "type": "bytes",
+        "id": 1
+      },
+      "enablePump": {
+        "type": "bool",
+        "id": 2
+      },
+      "stationsEnabledFlags_0_31": {
+        "type": "uint32",
+        "id": 3
+      },
+      "stationsEnabledFlags_32_63": {
+        "type": "uint32",
+        "id": 4
+      },
+      "rebootDevice": {
+        "type": "bool",
+        "id": 5
+      },
+      "testWatchdog": {
+        "type": "bool",
+        "id": 6
+      },
+      "pumpEnabledFlags": {
+        "type": "uint32",
+        "id": 7
+      },
+      "setNetworkInterface": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 8
+      },
+      "testDioFlags": {
+        "type": "uint32",
+        "id": 9
+      },
+      "dutCmd": {
+        "type": "Cmd",
+        "id": 10
+      },
+      "analogOutput": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 11
+      },
+      "rs485Channel": {
+        "type": "uint32",
+        "id": 12
+      },
+      "ledColor": {
+        "rule": "repeated",
+        "type": "LED_Color",
+        "id": 13
+      }
+    },
+    "nested": {
+      "Cmd": {
+        "values": {
+          "cmd_none": 0,
+          "cmd_testFail": 1,
+          "cmd_testPass": 2,
+          "cmd_testPass_debug": 3,
+          "cmd_startAutoTest": 4
+        }
+      },
+      "LED_Color": {
+        "values": {
+          "off": 0,
+          "red": 1,
+          "green": 2,
+          "blue": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_MfrTest_DutProvision": {
+    "edition": "proto2",
+    "fields": {
+      "dutId": {
+        "type": "bytes",
+        "id": 1
+      },
+      "provisionId": {
+        "rule": "required",
+        "type": "DutProvisionId",
+        "id": 2
+      }
+    },
+    "nested": {
+      "DutProvisionId": {
+        "values": {
+          "retailTimer": 0,
+          "proTimer": 1,
+          "internationalRetailTimer": 2,
+          "internationalProTimer": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_MfrTest_DutTestFinished": {
+    "edition": "proto2",
+    "fields": {
+      "dutId": {
+        "type": "bytes",
+        "id": 1
+      },
+      "testStatus": {
+        "type": "DutTestStatus",
+        "id": 2
+      },
+      "clearTestMode": {
+        "type": "bool",
+        "id": 3
+      }
+    },
+    "nested": {
+      "DutTestStatus": {
+        "values": {
+          "passedAllTests": 0,
+          "failed": 1
+        }
+      }
+    }
+  },
+  "OrbitPbApi_MfrTest_Hsc": {
+    "edition": "proto2",
+    "fields": {
+      "mfrTestState": {
+        "type": "MfrTestState",
+        "id": 1
+      },
+      "networkInterface": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 2
+      },
+      "uiTestStatus": {
+        "type": "UiTestStatus",
+        "id": 3
+      },
+      "flowMeter0FreqHz": {
+        "type": "uint32",
+        "id": 4
+      },
+      "flowMeter1FreqHz": {
+        "type": "uint32",
+        "id": 5
+      }
+    },
+    "nested": {
+      "MfrTestState": {
+        "values": {
+          "mfrTestState_none": 0,
+          "mfrTestState_ui": 1,
+          "mfrTestState_waitForAuto": 2,
+          "mfrTestState_auto": 3,
+          "mfrTestState_failed": 4,
+          "mfrTestState_passed": 5
+        }
+      },
+      "UiTestStatus": {
+        "values": {
+          "uiTestStatus_none": 0,
+          "uiTestStatus_rgbLeds": 1,
+          "uiTestStatus_button1": 2,
+          "uiTestStatus_button2": 3,
+          "uiTestStatus_button3": 4,
+          "uiTestStatus_failed": 5,
+          "uiTestStatus_finished": 6
+        }
+      }
+    }
+  },
+  "OrbitPbApi_MfrTest_GC": {
+    "edition": "proto2",
+    "fields": {
+      "mfrTestState": {
+        "type": "MfrTestState",
+        "id": 1
+      },
+      "networkInterface": {
+        "type": "OrbitPbApi_InterfaceId",
+        "id": 2
+      },
+      "uiTestStatus": {
+        "type": "UiTestStatus",
+        "id": 3
+      },
+      "flowMeter0FreqHz": {
+        "type": "uint32",
+        "id": 4
+      },
+      "flowMeter1FreqHz": {
+        "type": "uint32",
+        "id": 5
+      }
+    },
+    "nested": {
+      "MfrTestState": {
+        "values": {
+          "mfrTestState_none": 0,
+          "mfrTestState_ui": 1,
+          "mfrTestState_waitForAuto": 2,
+          "mfrTestState_auto": 3,
+          "mfrTestState_failed": 4,
+          "mfrTestState_passed": 5
+        }
+      },
+      "UiTestStatus": {
+        "values": {
+          "uiTestStatus_none": 0,
+          "uiTestStatus_rgbLeds": 1,
+          "uiTestStatus_button": 2,
+          "uiTestStatus_failed": 3,
+          "uiTestStatus_finished": 4
+        }
+      }
+    }
+  },
+  "OrbitPbApi_MfrTest_DutTestStatus": {
+    "edition": "proto2",
+    "fields": {
+      "buttonTestState": {
+        "type": "ButtonTestState",
+        "id": 1
+      },
+      "rl78CommTestPassed": {
+        "type": "bool",
+        "id": 2
+      },
+      "zcdTestPassed": {
+        "type": "bool",
+        "id": 3
+      },
+      "scdSigDetected": {
+        "type": "bool",
+        "id": 4
+      },
+      "rainSenseSigDetected": {
+        "type": "bool",
+        "id": 5
+      },
+      "battSenseGood": {
+        "type": "bool",
+        "id": 6
+      },
+      "testDioFlags": {
+        "type": "uint32",
+        "id": 7
+      },
+      "hscTestStatus": {
+        "type": "OrbitPbApi_MfrTest_Hsc",
+        "id": 64
+      },
+      "gcTestStatus": {
+        "type": "OrbitPbApi_MfrTest_GC",
+        "id": 65
+      }
+    },
+    "nested": {
+      "ButtonTestState": {
+        "values": {
+          "buttonTestState_none": 0,
+          "buttonTestState_clear": 1,
+          "buttonTestState_back": 2,
+          "buttonTestState_program": 3,
+          "buttonTestState_rainDelay": 4,
+          "buttonTestState_dialCw": 5,
+          "buttonTestState_select": 6,
+          "buttonTestState_dialCcw": 7,
+          "buttonTestState_reset": 8,
+          "buttonTestState_finished": 9
+        }
+      }
+    }
+  },
+  "OrbitPbApi_BleDeviceId": {
+    "edition": "proto2",
+    "values": {
+      "id_reserved": 0,
+      "id_wt25": 1,
+      "id_wt25H": 2,
+      "id_wt25G2": 3,
+      "id_wt25G2H": 4,
+      "id_bh1": 5,
+      "id_ht25": 6,
+      "id_bh1H": 7,
+      "id_hrc500": 8,
+      "id_wt24": 9,
+      "id_fs1": 10,
+      "id_cc2_5": 11,
+      "id_wt24H": 12,
+      "id_cms": 13,
+      "id_bh1G2": 14,
+      "id_ag_cpb": 15,
+      "id_ag_cpc": 16,
+      "id_ag_cpa": 17,
+      "id_wt26": 18,
+      "id_wt26H": 19,
+      "id_wt26I": 20,
+      "id_ht31": 21,
+      "id_ht32": 22,
+      "id_ht34": 23,
+      "id_ht25G2": 24,
+      "id_hsc": 25,
+      "id_wt25E": 26,
+      "id_wt25EH": 27,
+      "id_wt24E": 28,
+      "id_wt24EH": 29,
+      "id_wt25F": 30,
+      "id_wt25FH": 31,
+      "id_gc1": 32,
+      "id_bh1S": 33,
+      "id_wt25S": 34,
+      "id_wt25SH": 35,
+      "id_wt24S": 36,
+      "id_wt24SH": 37,
+      "id_ht31A": 38,
+      "id_ht32A": 39,
+      "id_ht34A": 40,
+      "id_ht25A": 41
+    }
+  },
+  "OrbitPbApi_BlePhyInterface": {
+    "edition": "proto2",
+    "values": {
+      "le_unknown": 0,
+      "le_1Mbps": 1,
+      "le_2Mbps": 3,
+      "le_codedS8_125": 4,
+      "le_codedS2_500": 5
+    }
+  },
+  "OrbitPbApi_BleBridgedDeviceEntry": {
+    "edition": "proto2",
+    "fields": {
+      "deviceSn": {
+        "type": "uint32",
+        "id": 1
+      },
+      "allowProvision": {
+        "type": "bool",
+        "id": 2
+      },
+      "deviceId": {
+        "type": "OrbitPbApi_BleDeviceId",
+        "id": 3
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedDevices": {
+    "edition": "proto2",
+    "fields": {
+      "networkEncryptionKey": {
+        "type": "bytes",
+        "id": 1
+      },
+      "bleBridgedDevEntry": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_BleBridgedDeviceEntry",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_UpdateFw": {
+    "edition": "proto2",
+    "fields": {
+      "version": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_Disconnect": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_BleBridgedCmd_Identify": {
+    "edition": "proto2",
+    "fields": {
+      "identifyTimeMs": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_AckAlarm": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_BleBridgedCmd_OnboardingComplete": {
+    "edition": "proto2",
+    "fields": {
+      "onboardingComplete": {
+        "type": "bool",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_SetTempLimits": {
+    "edition": "proto2",
+    "fields": {
+      "highTempLimitDegC": {
+        "type": "int32",
+        "id": 1
+      },
+      "lowTempLimitDegC": {
+        "type": "int32",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_OtaUpdateStart": {
+    "edition": "proto2",
+    "fields": {
+      "imageId": {
+        "type": "OrbitPbApi_OtaImageId",
+        "id": 1
+      },
+      "imageVersion": {
+        "type": "uint32",
+        "id": 2
+      },
+      "imageSize": {
+        "type": "uint32",
+        "id": 3
+      },
+      "imageCrc": {
+        "type": "uint32",
+        "id": 4
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_OtaUpdateBlockReq": {
+    "edition": "proto2",
+    "fields": {
+      "imageId": {
+        "type": "OrbitPbApi_OtaImageId",
+        "id": 1
+      },
+      "imageVersion": {
+        "type": "uint32",
+        "id": 2
+      },
+      "addressOffset": {
+        "type": "uint32",
+        "id": 3
+      },
+      "maxBlockSize": {
+        "type": "uint32",
+        "id": 4
+      },
+      "imageSize": {
+        "type": "uint32",
+        "id": 5
+      },
+      "hwVersion": {
+        "type": "uint32",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_OtaUpdateBlockResp": {
+    "edition": "proto2",
+    "fields": {
+      "imageId": {
+        "type": "OrbitPbApi_OtaImageId",
+        "id": 1
+      },
+      "imageVersion": {
+        "type": "uint32",
+        "id": 2
+      },
+      "addressOffset": {
+        "type": "uint32",
+        "id": 3
+      },
+      "blockSize": {
+        "type": "uint32",
+        "id": 4
+      },
+      "blockCrc": {
+        "type": "uint32",
+        "id": 5
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd_OtaUpdateChunk": {
+    "edition": "proto2",
+    "fields": {
+      "data": {
+        "type": "bytes",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedCmd": {
+    "edition": "proto2",
+    "oneofs": {
+      "message": {
+        "oneof": [
+          "bleBridgedCmdDisconnect",
+          "bleBridgedCmdUpdateFw",
+          "bleBridgedCmdIdentify",
+          "bleBridgedCmdOtaUpdateStart",
+          "bleBridgedCmdOtaUpdateBlockReq",
+          "bleBridgedCmdOtaUpdateBlockResp",
+          "bleBridgedCmdOtaUpdateChunk",
+          "bleBridgedCmdOnboardingComplete",
+          "bleBridgedCmdAckAlarm",
+          "bleBridgedCmdSetTempLimits"
+        ]
+      }
+    },
+    "fields": {
+      "phyInterface": {
+        "type": "OrbitPbApi_BlePhyInterface",
+        "id": 1
+      },
+      "deviceId": {
+        "type": "OrbitPbApi_BleDeviceId",
+        "id": 2
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 3
+      },
+      "bleBridgedCmdDisconnect": {
+        "type": "OrbitPbApi_BleBridgedCmd_Disconnect",
+        "id": 10
+      },
+      "bleBridgedCmdUpdateFw": {
+        "type": "OrbitPbApi_BleBridgedCmd_UpdateFw",
+        "id": 11
+      },
+      "bleBridgedCmdIdentify": {
+        "type": "OrbitPbApi_BleBridgedCmd_Identify",
+        "id": 12
+      },
+      "bleBridgedCmdOtaUpdateStart": {
+        "type": "OrbitPbApi_BleBridgedCmd_OtaUpdateStart",
+        "id": 13
+      },
+      "bleBridgedCmdOtaUpdateBlockReq": {
+        "type": "OrbitPbApi_BleBridgedCmd_OtaUpdateBlockReq",
+        "id": 14
+      },
+      "bleBridgedCmdOtaUpdateBlockResp": {
+        "type": "OrbitPbApi_BleBridgedCmd_OtaUpdateBlockResp",
+        "id": 15
+      },
+      "bleBridgedCmdOtaUpdateChunk": {
+        "type": "OrbitPbApi_BleBridgedCmd_OtaUpdateChunk",
+        "id": 16
+      },
+      "bleBridgedCmdOnboardingComplete": {
+        "type": "OrbitPbApi_BleBridgedCmd_OnboardingComplete",
+        "id": 17
+      },
+      "bleBridgedCmdAckAlarm": {
+        "type": "OrbitPbApi_BleBridgedCmd_AckAlarm",
+        "id": 40
+      },
+      "bleBridgedCmdSetTempLimits": {
+        "type": "OrbitPbApi_BleBridgedCmd_SetTempLimits",
+        "id": 41
+      }
+    }
+  },
+  "OrbitPbApi_BleDevSpec_RawData": {
+    "edition": "proto2",
+    "fields": {
+      "rawData": {
+        "type": "bytes",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleDevSpec_FloodSensor": {
+    "edition": "proto2",
+    "fields": {
+      "passedMfrSelfTest": {
+        "type": "bool",
+        "id": 1
+      },
+      "alarmActive": {
+        "type": "bool",
+        "id": 2
+      },
+      "leakDetected": {
+        "type": "bool",
+        "id": 3
+      },
+      "tempHigh": {
+        "type": "bool",
+        "id": 4
+      },
+      "tempLow": {
+        "type": "bool",
+        "id": 5
+      },
+      "currentTemperatureDegC": {
+        "type": "int32",
+        "id": 6
+      },
+      "batteryLevelMV": {
+        "type": "uint32",
+        "id": 7
+      }
+    }
+  },
+  "OrbitPbApi_BleDevSpec_IrrigationTimer": {
+    "edition": "proto2",
+    "fields": {
+      "currentTimeSecEpochLocal": {
+        "type": "uint32",
+        "id": 1
+      },
+      "batteryLevelMV": {
+        "type": "uint32",
+        "id": 2
+      },
+      "wateringStatus": {
+        "type": "OrbitPbApi_WateringStatus",
+        "id": 4
+      },
+      "rainDelay": {
+        "type": "OrbitPbApi_SetRainDelay",
+        "id": 5
+      },
+      "deviceStatus": {
+        "type": "OrbitPbApi_DeviceStatus",
+        "id": 6
+      },
+      "nextStartProgramFlags": {
+        "type": "uint32",
+        "id": 7
+      },
+      "nextStartTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 8
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedMsg": {
+    "edition": "proto2",
+    "oneofs": {
+      "devSpecific": {
+        "oneof": [
+          "bleDevSpecRawData",
+          "bleDevSpecFloodSensor",
+          "bleDevSpecIrrigationTimer"
+        ]
+      }
+    },
+    "fields": {
+      "msgTimestamp": {
+        "type": "uint32",
+        "id": 1
+      },
+      "phyInterface": {
+        "type": "OrbitPbApi_BlePhyInterface",
+        "id": 2
+      },
+      "channel": {
+        "type": "uint32",
+        "id": 3
+      },
+      "rssi": {
+        "type": "int32",
+        "id": 4
+      },
+      "connectable": {
+        "type": "bool",
+        "id": 5
+      },
+      "deviceId": {
+        "type": "OrbitPbApi_BleDeviceId",
+        "id": 6
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 7
+      },
+      "bootloaderMode": {
+        "type": "bool",
+        "id": 8
+      },
+      "mfrTestMode": {
+        "type": "OrbitPbApi_TestMode",
+        "id": 9
+      },
+      "provisioned": {
+        "type": "bool",
+        "id": 10
+      },
+      "msgSeqNum": {
+        "type": "uint32",
+        "id": 11
+      },
+      "firmwareVersion": {
+        "type": "uint32",
+        "id": 12
+      },
+      "cfgHash": {
+        "type": "uint32",
+        "id": 13
+      },
+      "deviceFlags": {
+        "type": "uint32",
+        "id": 14
+      },
+      "onboardComplete": {
+        "type": "bool",
+        "id": 15
+      },
+      "identifyEnabled": {
+        "type": "bool",
+        "id": 16
+      },
+      "bleDevSpecRawData": {
+        "type": "OrbitPbApi_BleDevSpec_RawData",
+        "id": 19
+      },
+      "bleDevSpecFloodSensor": {
+        "type": "OrbitPbApi_BleDevSpec_FloodSensor",
+        "id": 20
+      },
+      "bleDevSpecIrrigationTimer": {
+        "type": "OrbitPbApi_BleDevSpec_IrrigationTimer",
+        "id": 21
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedMessages": {
+    "edition": "proto2",
+    "fields": {
+      "msgEntries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_BleBridgedMsg",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedPendMsgEntry": {
+    "edition": "proto2",
+    "fields": {
+      "deviceSn": {
+        "type": "uint32",
+        "id": 1
+      },
+      "disableAutoDisconnect": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedPendMsgQueue": {
+    "edition": "proto2",
+    "fields": {
+      "pendMsgEntries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_BleBridgedPendMsgEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedDeviceStatusEntry": {
+    "edition": "proto2",
+    "fields": {
+      "phyInterface": {
+        "type": "OrbitPbApi_BlePhyInterface",
+        "id": 1
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 2
+      },
+      "connected": {
+        "type": "bool",
+        "id": 3
+      },
+      "updateProgress": {
+        "type": "OrbitPbApi_UpdateProgress",
+        "id": 4
+      },
+      "maxWriteSize": {
+        "type": "uint32",
+        "id": 5
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedDeviceStatus": {
+    "edition": "proto2",
+    "fields": {
+      "deviceStatusEntries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_BleBridgedDeviceStatusEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_BleRadioTest": {
+    "edition": "proto2",
+    "fields": {
+      "cmd": {
+        "type": "Cmd",
+        "id": 1
+      },
+      "txPowerDBm": {
+        "type": "int32",
+        "id": 2
+      },
+      "dataRate": {
+        "type": "DataRate",
+        "id": 3
+      },
+      "startFrequency_Hz": {
+        "type": "uint32",
+        "id": 4
+      },
+      "stopFrequency_Hz": {
+        "type": "uint32",
+        "id": 5
+      },
+      "txPattern": {
+        "type": "TxPattern",
+        "id": 6
+      },
+      "delayTimeMs": {
+        "type": "uint32",
+        "id": 7
+      },
+      "dutyCyclePercent": {
+        "type": "uint32",
+        "id": 8
+      }
+    },
+    "nested": {
+      "Cmd": {
+        "values": {
+          "cancel": 0,
+          "startTxCW": 1,
+          "startTxModCW": 2,
+          "startTxModCW_DC": 3,
+          "startTxSweep": 4,
+          "startRx": 5,
+          "startRxSweep": 6
+        }
+      },
+      "DataRate": {
+        "values": {
+          "nRf_1Mbit": 0,
+          "nRf_2Mbit": 1,
+          "ble_1Mbit": 2,
+          "ble_2Mbit": 3,
+          "ble_lr125Kbit": 4,
+          "ble_lr500Kbit": 5,
+          "ieee802154_250Kbit": 6
+        }
+      },
+      "TxPattern": {
+        "values": {
+          "random": 0,
+          "F0": 1,
+          "CC": 2
+        }
+      }
+    }
+  },
+  "OrbitPbApi_WifiRadioTest": {
+    "edition": "proto2",
+    "fields": {
+      "cmd": {
+        "type": "Cmd",
+        "id": 1
+      },
+      "wifiProtocol": {
+        "type": "WifiProtocol",
+        "id": 2
+      },
+      "dataRate": {
+        "type": "DataRate",
+        "id": 3
+      },
+      "channelNumber": {
+        "type": "uint32",
+        "id": 4
+      },
+      "txPowerQuarterDBm": {
+        "type": "int32",
+        "id": 5
+      },
+      "secondaryChannelAbove": {
+        "type": "bool",
+        "id": 6
+      }
+    },
+    "nested": {
+      "Cmd": {
+        "values": {
+          "cancel": 0,
+          "startTxCW": 1,
+          "startTxModCW": 2,
+          "startRx": 3
+        }
+      },
+      "WifiProtocol": {
+        "values": {
+          "wp_802_11b": 0,
+          "wp_802_11g": 1,
+          "wp_802_11n_20": 2,
+          "wp_802_11n_40": 3,
+          "wp_802_11n_5GHz_20": 4,
+          "wp_802_11n_5GHz_40": 5,
+          "wp_802_11a_5GHz_20": 6
+        }
+      },
+      "DataRate": {
+        "values": {
+          "dr_1_Mbps": 0,
+          "dr_2_Mbps": 1,
+          "dr_5_5_Mbps": 2,
+          "dr_6_Mbps": 3,
+          "dr_9_Mbps": 4,
+          "dr_12_Mbps": 5,
+          "dr_18_Mbps": 6,
+          "dr_24_Mbps": 7,
+          "dr_36_Mbps": 8,
+          "dr_48_Mbps": 9,
+          "dr_54_Mbps": 10,
+          "dr_mcs0": 11,
+          "dr_mcs1": 12,
+          "dr_mcs2": 13,
+          "dr_mcs3": 14,
+          "dr_mcs4": 15,
+          "dr_mcs5": 16,
+          "dr_mcs6": 17,
+          "dr_mcs7": 18
+        }
+      }
+    }
+  },
+  "OrbitPbApi_LoRaRadioTest": {
+    "edition": "proto2",
+    "fields": {
+      "cmd": {
+        "type": "Cmd",
+        "id": 1
+      },
+      "spreadingFactor": {
+        "type": "SpreadingFactor",
+        "id": 2
+      },
+      "bandWidth": {
+        "type": "BandWidth",
+        "id": 3
+      },
+      "codingRate": {
+        "type": "CodingRate",
+        "id": 4
+      },
+      "freq_Hz": {
+        "type": "uint32",
+        "id": 5
+      },
+      "txPowerDBm": {
+        "type": "int32",
+        "id": 6
+      },
+      "stopFreq_Hz": {
+        "type": "uint32",
+        "id": 7
+      },
+      "stepFreq_Hz": {
+        "type": "uint32",
+        "id": 8
+      },
+      "txPeriodMs": {
+        "type": "uint32",
+        "id": 9
+      }
+    },
+    "nested": {
+      "Cmd": {
+        "values": {
+          "cancel": 0,
+          "startTxCW": 1,
+          "startTxModCW": 2,
+          "startRx": 3,
+          "startTxSweep": 4,
+          "startTxFreqHopping": 5
+        }
+      },
+      "SpreadingFactor": {
+        "values": {
+          "sf_5": 0,
+          "sf_6": 1,
+          "sf_7": 2,
+          "sf_8": 3,
+          "sf_9": 4,
+          "sf_10": 5,
+          "sf_11": 6,
+          "sf_12": 7
+        }
+      },
+      "BandWidth": {
+        "values": {
+          "bw_7": 0,
+          "bw_10": 1,
+          "bw_15": 2,
+          "bw_20": 3,
+          "bw_31": 4,
+          "bw_41": 5,
+          "bw_62": 6,
+          "bw_125": 7,
+          "bw_250": 8,
+          "bw_500": 9
+        }
+      },
+      "CodingRate": {
+        "values": {
+          "cr_4_5": 0,
+          "cr_4_6": 1,
+          "cr_4_7": 2,
+          "cr_4_8": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_CellularRadioTest": {
+    "edition": "proto2",
+    "fields": {
+      "cmd": {
+        "type": "Cmd",
+        "id": 1
+      },
+      "network": {
+        "type": "Network",
+        "id": 2
+      },
+      "bandwidth": {
+        "type": "Bandwidth",
+        "id": 3
+      },
+      "band": {
+        "type": "Band",
+        "id": 4
+      },
+      "channel": {
+        "type": "uint32",
+        "id": 5
+      },
+      "txPowerTenthsDBm": {
+        "type": "int32",
+        "id": 6
+      }
+    },
+    "nested": {
+      "Cmd": {
+        "values": {
+          "cancel": 0,
+          "startTx": 1,
+          "startRx": 2
+        }
+      },
+      "Network": {
+        "values": {
+          "network_2g": 0,
+          "network_4g": 1
+        }
+      },
+      "Bandwidth": {
+        "values": {
+          "bw_1_4_Mhz": 0,
+          "bw_3_Mhz": 1,
+          "bw_4_Mhz": 2
+        }
+      },
+      "Band": {
+        "values": {
+          "band_gsm_850": 0,
+          "band_e_gsm_900": 1,
+          "band_dsc_1900": 2,
+          "band_psc_1900": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_TestMsg": {
+    "edition": "proto2",
+    "oneofs": {
+      "testMsg": {
+        "oneof": [
+          "wifiRadioTest",
+          "bleRadioTest",
+          "loraRadioTest",
+          "cellRadioTest"
+        ]
+      }
+    },
+    "fields": {
+      "wifiRadioTest": {
+        "type": "OrbitPbApi_WifiRadioTest",
+        "id": 1
+      },
+      "bleRadioTest": {
+        "type": "OrbitPbApi_BleRadioTest",
+        "id": 2
+      },
+      "loraRadioTest": {
+        "type": "OrbitPbApi_LoRaRadioTest",
+        "id": 3
+      },
+      "cellRadioTest": {
+        "type": "OrbitPbApi_CellularRadioTest",
+        "id": 4
+      }
+    }
+  },
+  "OrbitPbApi_MeshMessage": {
+    "edition": "proto2",
+    "fields": {
+      "meshDeviceId": {
+        "rule": "required",
+        "type": "uint32",
+        "id": 1
+      },
+      "commandId": {
+        "rule": "required",
+        "type": "MeshMessageCommandId",
+        "id": 2
+      },
+      "messageId": {
+        "rule": "required",
+        "type": "MeshMessageId",
+        "id": 3
+      },
+      "messageValueLow": {
+        "type": "uint32",
+        "id": 4
+      },
+      "messageValueHigh": {
+        "type": "uint32",
+        "id": 5
+      }
+    },
+    "nested": {
+      "MeshMessageCommandId": {
+        "values": {
+          "commandFailed": 0,
+          "readValue": 1,
+          "readValueResponse": 2,
+          "writeValue": 3,
+          "writeValueResponse": 4,
+          "sendMessageToBridge": 5,
+          "messageFromBridge": 6
+        }
+      },
+      "MeshMessageId": {
+        "values": {
+          "bridgeDeviceId": 0,
+          "deviceInfo": 1,
+          "deviceStatus": 2,
+          "batteryStatus": 3,
+          "identifyDevice": 4,
+          "utcTime": 5,
+          "localTimeOffset": 6,
+          "manualPresetRunTime": 7,
+          "stationValveStatus": 8,
+          "activePrograms": 9,
+          "rainDelay": 10,
+          "instantaneousFlowRate": 11,
+          "lastWaterCycleInfo": 12,
+          "deviceControl0": 13,
+          "scheduleInfo0": 16,
+          "scheduleInfo1": 17,
+          "scheduleInfo2": 18,
+          "groupWatering": 19,
+          "scheduleStartTimes_0_1": 20,
+          "scheduleStartTimes_2_3": 21,
+          "scheduleFirstStationRunTime": 22,
+          "scheduleLastStationRunTime": 85,
+          "scheduleStation_maxStations": 64,
+          "flag_msgFromBridge": 8192,
+          "flag_msgToBridge": 16384,
+          "flag_orbitCsrMsg": 32768
+        }
+      }
+    }
+  },
+  "OrbitPbApi_CheckIn": {
+    "edition": "proto2",
+    "fields": {
+      "deviceInfo": {
+        "type": "OrbitPbApi_DeviceInfo",
+        "id": 1
+      },
+      "deviceStatus": {
+        "type": "OrbitPbApi_DeviceStatusInfo",
+        "id": 2
+      },
+      "firmwareVersion": {
+        "type": "uint32",
+        "id": 3
+      },
+      "signalStrength": {
+        "type": "int32",
+        "id": 4
+      },
+      "configHash": {
+        "type": "uint32",
+        "id": 5
+      },
+      "pullLogFiles": {
+        "type": "bool",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbApi_Ack": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_GetCellularSettings": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_CellularSimSetingsEntry": {
+    "edition": "proto2",
+    "fields": {
+      "iccidPrefix": {
+        "type": "string",
+        "id": 1
+      },
+      "apn": {
+        "type": "string",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_CellularSettings": {
+    "edition": "proto2",
+    "fields": {
+      "enabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "tlsSocket": {
+        "type": "bool",
+        "id": 2
+      },
+      "activePeriodSecs": {
+        "type": "uint32",
+        "id": 3
+      },
+      "activeLatencyMs": {
+        "type": "uint32",
+        "id": 4
+      },
+      "pagingWindowMs": {
+        "type": "uint32",
+        "id": 5
+      },
+      "activeTimeOfDayMinsFromMidnight": {
+        "type": "uint32",
+        "id": 6
+      },
+      "region": {
+        "type": "Region",
+        "id": 7
+      },
+      "simSettings": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_CellularSimSetingsEntry",
+        "id": 8
+      }
+    },
+    "nested": {
+      "Region": {
+        "values": {
+          "none": 0,
+          "northAmerica": 1,
+          "europe": 2,
+          "australia": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_getCellularStatus": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_CellularStatus": {
+    "edition": "proto2",
+    "fields": {
+      "rssi": {
+        "type": "int32",
+        "id": 5
+      },
+      "rsrq": {
+        "type": "int32",
+        "id": 6
+      },
+      "imei": {
+        "type": "uint64",
+        "id": 7
+      },
+      "imsi": {
+        "type": "uint64",
+        "id": 8
+      },
+      "bitRateError": {
+        "type": "float",
+        "id": 9
+      },
+      "isAsleep": {
+        "type": "bool",
+        "id": 10
+      },
+      "ipAddress": {
+        "type": "string",
+        "id": 11
+      },
+      "networkOperator": {
+        "type": "string",
+        "id": 12
+      },
+      "networkType": {
+        "type": "NetworkType",
+        "id": 13
+      },
+      "timeToConnect": {
+        "type": "uint32",
+        "id": 14
+      },
+      "numSocketDisconnects": {
+        "type": "uint32",
+        "id": 15
+      },
+      "numNetworkDisconnects": {
+        "type": "uint32",
+        "id": 16
+      }
+    },
+    "nested": {
+      "NetworkType": {
+        "values": {
+          "net2G": 1,
+          "net3G": 2,
+          "CATM1": 3,
+          "NBIOT": 4,
+          "Unknown": 5
+        }
+      }
+    }
+  },
+  "OrbitPbApi_CellularSleep": {
+    "edition": "proto2",
+    "fields": {
+      "timeStampToSleep": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timeStampToWake": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_CellularSleepSettingsEntry": {
+    "edition": "proto2",
+    "fields": {
+      "timeToSleepMinsFromMidnight": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timeToWakeMinsFromMidnight": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "OrbitPbApi_CellularSleepSettings": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_CellularSleepSettingsEntry",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_CellularSleepAbort": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_LorawanSettings": {
+    "edition": "proto2",
+    "fields": {
+      "enabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "region": {
+        "type": "Region",
+        "id": 2
+      }
+    },
+    "nested": {
+      "Region": {
+        "values": {
+          "none": 0,
+          "northAmerica": 1,
+          "europe": 2,
+          "australia": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_getLorawanStatus": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_LorawanStatus": {
+    "edition": "proto2",
+    "fields": {
+      "lorawanInterfaceState": {
+        "type": "LorawanInterfaceState",
+        "id": 1
+      },
+      "lorawanInterfaceStatus": {
+        "type": "LorawanInterfaceStatus",
+        "id": 2
+      }
+    },
+    "nested": {
+      "LorawanInterfaceState": {
+        "values": {
+          "lorawanInterfaceState_waitingForInit": 0,
+          "lorawanInterfaceState_notConfigured": 1,
+          "lorawanInterfaceState_disconnected": 2,
+          "lorawanInterfaceState_connected": 3,
+          "lorawanInterfaceState_test": 4,
+          "lorawanInterfaceState_unknown": 5
+        }
+      },
+      "LorawanInterfaceStatus": {
+        "values": {
+          "lorawanInterfaceStatus_ok": 0,
+          "lorawanInterfaceStatus_error_unableToFindNetwork": 1,
+          "lorawanInterfaceStatus_error_connectionLost": 2,
+          "lorawanInterfaceStatus_error_unknown": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_GetSmartAccessories": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_SmartAccessoryType": {
+    "edition": "proto2",
+    "values": {
+      "flowMeterValve": 1
+    }
+  },
+  "OrbitPbApi_SmartAccessory": {
+    "edition": "proto2",
+    "fields": {
+      "type": {
+        "type": "OrbitPbApi_SmartAccessoryType",
+        "id": 1
+      },
+      "serialNumber": {
+        "type": "bytes",
+        "id": 2
+      },
+      "connected": {
+        "type": "bool",
+        "id": 3
+      },
+      "flowSensorBitmap": {
+        "type": "uint32",
+        "id": 4
+      },
+      "stationBitmapConfig": {
+        "type": "uint32",
+        "id": 5
+      },
+      "stationBitmapPresent": {
+        "type": "uint32",
+        "id": 6
+      },
+      "firmwareVersion": {
+        "type": "uint32",
+        "id": 7
+      },
+      "logicalAddress": {
+        "type": "uint32",
+        "id": 8
+      },
+      "stationsMap": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 9
+      },
+      "flowSensorMap": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 10
+      }
+    }
+  },
+  "OrbitPbApi_SmartAccessories": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_SmartAccessory",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SmartAccessoryCheck": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_SmartAccessoryOtaStatus": {
+    "edition": "proto2",
+    "fields": {
+      "serialNumber": {
+        "type": "bytes",
+        "id": 1
+      },
+      "status": {
+        "type": "Status",
+        "id": 2
+      },
+      "progress": {
+        "type": "uint32",
+        "id": 3
+      }
+    },
+    "nested": {
+      "Status": {
+        "values": {
+          "checking": 0,
+          "inProgress": 1,
+          "finalizing": 2,
+          "completed": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_GetSmartAccessoryOtaStatus": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_CrcCheckFailed": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "OrbitPbApi_Message": {
+    "edition": "proto2",
+    "oneofs": {
+      "message": {
+        "oneof": [
+          "keepAlive",
+          "syncRequest",
+          "closeConnection",
+          "timerMode",
+          "getDeviceStatusInfo",
+          "deviceStatusInfo",
+          "setRainDelay",
+          "setStationCfg",
+          "getStationCfg",
+          "stationCfg",
+          "setDateTime",
+          "setEpochTime",
+          "requestTime",
+          "getProgramSchedule",
+          "setProgramSchedule",
+          "programSchedule",
+          "getActivePrograms",
+          "programSchedules",
+          "setActivePrograms",
+          "activePrograms",
+          "skipCurrentStation",
+          "getDeviceInfo",
+          "deviceInfo",
+          "getEventLog",
+          "eventLog",
+          "getWaterEventLog",
+          "waterEventLog",
+          "getNextStartTime",
+          "nextStartTime",
+          "getSettings",
+          "setSettings",
+          "wateringStatus",
+          "faultStatus",
+          "getBatteryStatus",
+          "batteryStatus",
+          "identifyDevice",
+          "getManualPresetRunTime",
+          "manualPresetRunTime",
+          "getStationValveStatus",
+          "stationValveStatus",
+          "deviceControl",
+          "meshMessage",
+          "setNetworkEncKey",
+          "getFlowSensorParams",
+          "flowSensorParams",
+          "enableFlowSensorData",
+          "getFlowSensorData",
+          "flowSensorData",
+          "getMfiSaltVerifier",
+          "mfiSaltVerifier",
+          "configureDevice",
+          "getHomeKitParams",
+          "setHomeKitParams",
+          "homeKitParams",
+          "setWeatherForecastData",
+          "resetDevice",
+          "getSettingsHash",
+          "settingsHash",
+          "testMsg",
+          "pumpCfg",
+          "setPumpCfg",
+          "getPumpCfg",
+          "getWateringStatus",
+          "wateringStatusSummary",
+          "skipWaterInstance",
+          "skipWaterEvent",
+          "setConcurrentProgramGroups",
+          "getConcurrentProgramGroups",
+          "reportConcurrentProgramGroups",
+          "scheduledMode",
+          "setScheduledMode",
+          "getScheduledMode",
+          "getSmartAccessories",
+          "setSmartAccessories",
+          "smartAccessoryCheck",
+          "crcCheckFailed",
+          "getSmartAccessoryOtaStatus",
+          "smartAccessoryOtaStatus",
+          "cellularSettings",
+          "getCellularSettings",
+          "getCellularStatus",
+          "cellularStatus",
+          "cellularSleep",
+          "cellularSleepSettings",
+          "cellularSleepAbort",
+          "lorawanSettings",
+          "getLorawanStatus",
+          "lorawanStatus",
+          "getApList",
+          "apList",
+          "networkConnect",
+          "networkDisconnect",
+          "getNetworkStatus",
+          "networkStatus",
+          "updateAvailable",
+          "updateBlockRequest",
+          "updateBlockResponse",
+          "updateGetProgress",
+          "updateProgress",
+          "mfrTestWifiTestStatus",
+          "mfrTestDutTestCommand",
+          "mfrTestDutProvision",
+          "mfrTestDutTestFinished",
+          "bleBridgedDevices",
+          "bleBridgedCmd",
+          "bleBridgedMsgs",
+          "bleBridgedPendMsgQueue",
+          "bleBridgedDeviceStatus",
+          "checkIn",
+          "ack",
+          "agDeviceInfo",
+          "restartDevice",
+          "agClearFaults",
+          "cpSetSettings",
+          "cpControlStatus",
+          "cpGetControlStatus",
+          "cpPumpProgram",
+          "cpEndGunProgram",
+          "cpAuxiliaryProgram",
+          "cpVriProgram",
+          "cpStatusDebug",
+          "cpStepProgram",
+          "cpGetTSMValue",
+          "cpSetMac",
+          "cpMfrTest",
+          "cpGetMfrTest",
+          "agGetApList",
+          "radioConfigure",
+          "getRadioConfigStatus",
+          "radioConfigStatus",
+          "resetRadioConfigure",
+          "cpcRadioStatus",
+          "getIpRadioData",
+          "setIpRadioData",
+          "startAntennaAlignment",
+          "stopAntennaAlignment",
+          "pingNetwork",
+          "pingResults",
+          "cpaLiteOnboard",
+          "cpaLiteGetStatus",
+          "cpaLiteStatus",
+          "cpaLiteSetSettings",
+          "cpaGetControlStatus",
+          "cpaControlStatus",
+          "cpaGetSettings",
+          "cpaSettings",
+          "getFlowSensorLogs",
+          "flowSensorLogs",
+          "gcGetStatus",
+          "gcStatus",
+          "gcSetSettings",
+          "gcControl",
+          "flush",
+          "gcFaultStatus",
+          "getAgLog",
+          "agLog",
+          "pumpControl",
+          "httpRequest",
+          "httpResponse",
+          "pnSecDevStatus",
+          "pnSecDevCtl",
+          "cpaMfrTest"
+        ]
+      }
+    },
+    "fields": {
+      "id": {
+        "type": "bytes",
+        "id": 1
+      },
+      "timestampIso8601": {
+        "type": "string",
+        "id": 2
+      },
+      "testMode": {
+        "type": "OrbitPbApi_TestMode",
+        "id": 3
+      },
+      "msgVersion": {
+        "type": "OrbitPbApi_Version",
+        "id": 4
+      },
+      "destinationId": {
+        "type": "bytes",
+        "id": 5
+      },
+      "meshDeviceId": {
+        "type": "uint32",
+        "id": 6
+      },
+      "timestampSecEpochUTC": {
+        "type": "uint32",
+        "id": 7
+      },
+      "repeaterConfig": {
+        "type": "BhyveAgApi_RepeaterConfig",
+        "id": 8
+      },
+      "messageId": {
+        "type": "uint32",
+        "id": 95
+      },
+      "ackMessageId": {
+        "type": "uint32",
+        "id": 96
+      },
+      "repeaterDestinationId": {
+        "type": "bytes",
+        "id": 1006
+      },
+      "keepAlive": {
+        "type": "OrbitPbApi_KeepAlive",
+        "id": 9
+      },
+      "syncRequest": {
+        "type": "OrbitPbApi_SyncRequest",
+        "id": 10
+      },
+      "closeConnection": {
+        "type": "OrbitPbApi_CloseConnection",
+        "id": 11
+      },
+      "timerMode": {
+        "type": "OrbitPbApi_TimerMode",
+        "id": 14
+      },
+      "getDeviceStatusInfo": {
+        "type": "OrbitPbApi_GetDeviceStatusInfo",
+        "id": 15
+      },
+      "deviceStatusInfo": {
+        "type": "OrbitPbApi_DeviceStatusInfo",
+        "id": 16
+      },
+      "setRainDelay": {
+        "type": "OrbitPbApi_SetRainDelay",
+        "id": 17,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "setStationCfg": {
+        "type": "OrbitPbApi_SetStationCfg",
+        "id": 94
+      },
+      "getStationCfg": {
+        "type": "OrbitPbApi_GetStationCfg",
+        "id": 97
+      },
+      "stationCfg": {
+        "type": "OrbitPbApi_StationCfg",
+        "id": 98
+      },
+      "setDateTime": {
+        "type": "OrbitPbApi_SetDateTime",
+        "id": 18,
+        "options": {
+          "deprecated": true
+        }
+      },
+      "setEpochTime": {
+        "type": "OrbitPbApi_SetEpochTime",
+        "id": 75
+      },
+      "requestTime": {
+        "type": "OrbitPbApi_RequestTime",
+        "id": 83
+      },
+      "getProgramSchedule": {
+        "type": "OrbitPbApi_GetProgramSchedule",
+        "id": 69
+      },
+      "setProgramSchedule": {
+        "type": "OrbitPbApi_SetProgramSchedule",
+        "id": 19
+      },
+      "programSchedule": {
+        "type": "OrbitPbApi_ProgramSchedule",
+        "id": 76
+      },
+      "getActivePrograms": {
+        "type": "OrbitPbApi_GetActivePrograms",
+        "id": 77
+      },
+      "programSchedules": {
+        "type": "OrbitPbApi_ProgramSchedules",
+        "id": 115
+      },
+      "setActivePrograms": {
+        "type": "OrbitPbApi_SetActivePrograms",
+        "id": 20
+      },
+      "activePrograms": {
+        "type": "OrbitPbApi_ActivePrograms",
+        "id": 78
+      },
+      "skipCurrentStation": {
+        "type": "OrbitPbApi_SkipCurrentStation",
+        "id": 21
+      },
+      "getDeviceInfo": {
+        "type": "OrbitPbApi_GetDeviceInfo",
+        "id": 22
+      },
+      "deviceInfo": {
+        "type": "OrbitPbApi_DeviceInfo",
+        "id": 23
+      },
+      "getEventLog": {
+        "type": "OrbitPbApi_GetEventLog",
+        "id": 88
+      },
+      "eventLog": {
+        "type": "OrbitPbApi_EventLog",
+        "id": 89
+      },
+      "getWaterEventLog": {
+        "type": "OrbitPbApi_GetWaterEventLog",
+        "id": 24
+      },
+      "waterEventLog": {
+        "type": "OrbitPbApi_WaterEventLog",
+        "id": 25
+      },
+      "getNextStartTime": {
+        "type": "OrbitPbApi_GetNextStartTime",
+        "id": 26
+      },
+      "nextStartTime": {
+        "type": "OrbitPbApi_NextStartTime",
+        "id": 27
+      },
+      "getSettings": {
+        "type": "OrbitPbApi_GetSettings",
+        "id": 28
+      },
+      "setSettings": {
+        "type": "OrbitPbApi_SetSettings",
+        "id": 29
+      },
+      "wateringStatus": {
+        "type": "OrbitPbApi_WateringStatus",
+        "id": 30
+      },
+      "faultStatus": {
+        "type": "OrbitPbApi_FaultStatus",
+        "id": 31
+      },
+      "getBatteryStatus": {
+        "type": "OrbitPbApi_GetBatteryStatus",
+        "id": 45
+      },
+      "batteryStatus": {
+        "type": "OrbitPbApi_BatteryStatus",
+        "id": 46
+      },
+      "identifyDevice": {
+        "type": "OrbitPbApi_IdentifyDevice",
+        "id": 47
+      },
+      "getManualPresetRunTime": {
+        "type": "OrbitPbApi_GetManualPresetRunTime",
+        "id": 48
+      },
+      "manualPresetRunTime": {
+        "type": "OrbitPbApi_ManualPresetRunTime",
+        "id": 49
+      },
+      "getStationValveStatus": {
+        "type": "OrbitPbApi_GetStationValveStatus",
+        "id": 50
+      },
+      "stationValveStatus": {
+        "type": "OrbitPbApi_StationValveStatus",
+        "id": 51
+      },
+      "deviceControl": {
+        "type": "OrbitPbApi_DeviceControl",
+        "id": 52
+      },
+      "meshMessage": {
+        "type": "OrbitPbApi_MeshMessage",
+        "id": 53
+      },
+      "setNetworkEncKey": {
+        "type": "OrbitPbApi_SetNetworkEncKey",
+        "id": 54
+      },
+      "getFlowSensorParams": {
+        "type": "OrbitPbApi_GetFlowSensorParams",
+        "id": 55
+      },
+      "flowSensorParams": {
+        "type": "OrbitPbApi_FlowSensorParams",
+        "id": 56
+      },
+      "enableFlowSensorData": {
+        "type": "OrbitPbApi_EnableFlowSensorData",
+        "id": 57
+      },
+      "getFlowSensorData": {
+        "type": "OrbitPbApi_GetFlowSensorData",
+        "id": 58
+      },
+      "flowSensorData": {
+        "type": "OrbitPbApi_FlowSensorData",
+        "id": 59
+      },
+      "getMfiSaltVerifier": {
+        "type": "OrbitPbApi_GetMfiSaltVerifier",
+        "id": 60
+      },
+      "mfiSaltVerifier": {
+        "type": "OrbitPbApi_MfiSaltVerifier",
+        "id": 61
+      },
+      "configureDevice": {
+        "type": "OrbitPbApi_ConfigureDevice",
+        "id": 62
+      },
+      "getHomeKitParams": {
+        "type": "OrbitPbApi_GetHomeKitParams",
+        "id": 72
+      },
+      "setHomeKitParams": {
+        "type": "OrbitPbApi_SetHomeKitParams",
+        "id": 73
+      },
+      "homeKitParams": {
+        "type": "OrbitPbApi_HomeKitParams",
+        "id": 74
+      },
+      "setWeatherForecastData": {
+        "type": "OrbitPbApi_SetWeatherForecastData",
+        "id": 93
+      },
+      "resetDevice": {
+        "type": "OrbitPbApi_ResetDevice",
+        "id": 101
+      },
+      "getSettingsHash": {
+        "type": "OrbitPbApi_GetSettingsHash",
+        "id": 103
+      },
+      "settingsHash": {
+        "type": "OrbitPbApi_SettingsHash",
+        "id": 104
+      },
+      "testMsg": {
+        "type": "OrbitPbApi_TestMsg",
+        "id": 102
+      },
+      "pumpCfg": {
+        "type": "OrbitPbApi_PumpCfg",
+        "id": 105
+      },
+      "setPumpCfg": {
+        "type": "OrbitPbApi_PumpCfg",
+        "id": 106
+      },
+      "getPumpCfg": {
+        "type": "OrbitPbApi_GetPumpCfg",
+        "id": 107
+      },
+      "getWateringStatus": {
+        "type": "OrbitPbApi_GetWateringStatus",
+        "id": 110
+      },
+      "wateringStatusSummary": {
+        "type": "OrbitPbApi_WateringStatusSummary",
+        "id": 111
+      },
+      "skipWaterInstance": {
+        "type": "OrbitPbApi_SkipWaterInstance",
+        "id": 112
+      },
+      "skipWaterEvent": {
+        "type": "OrbitPbApi_SkipWaterEvent",
+        "id": 113
+      },
+      "setConcurrentProgramGroups": {
+        "type": "OrbitPbApi_SetConcurrentProgramGroups",
+        "id": 116
+      },
+      "getConcurrentProgramGroups": {
+        "type": "OrbitPbApi_GetConcurrentProgramGroups",
+        "id": 117
+      },
+      "reportConcurrentProgramGroups": {
+        "type": "OrbitPbApi_ReportConcurrentProgramGroups",
+        "id": 118
+      },
+      "scheduledMode": {
+        "type": "OrbitPbApi_ScheduledMode",
+        "id": 119
+      },
+      "setScheduledMode": {
+        "type": "OrbitPbApi_SetScheduledMode",
+        "id": 120
+      },
+      "getScheduledMode": {
+        "type": "OrbitPbApi_GetScheduledMode",
+        "id": 121
+      },
+      "getSmartAccessories": {
+        "type": "OrbitPbApi_GetSmartAccessories",
+        "id": 200
+      },
+      "setSmartAccessories": {
+        "type": "OrbitPbApi_SmartAccessories",
+        "id": 201
+      },
+      "smartAccessoryCheck": {
+        "type": "OrbitPbApi_SmartAccessoryCheck",
+        "id": 210
+      },
+      "crcCheckFailed": {
+        "type": "OrbitPbApi_CrcCheckFailed",
+        "id": 211
+      },
+      "getSmartAccessoryOtaStatus": {
+        "type": "OrbitPbApi_GetSmartAccessoryOtaStatus",
+        "id": 214
+      },
+      "smartAccessoryOtaStatus": {
+        "type": "OrbitPbApi_SmartAccessoryOtaStatus",
+        "id": 215
+      },
+      "cellularSettings": {
+        "type": "OrbitPbApi_CellularSettings",
+        "id": 202
+      },
+      "getCellularSettings": {
+        "type": "OrbitPbApi_GetCellularSettings",
+        "id": 203
+      },
+      "getCellularStatus": {
+        "type": "OrbitPbApi_getCellularStatus",
+        "id": 204
+      },
+      "cellularStatus": {
+        "type": "OrbitPbApi_CellularStatus",
+        "id": 205
+      },
+      "cellularSleep": {
+        "type": "OrbitPbApi_CellularSleep",
+        "id": 209
+      },
+      "cellularSleepSettings": {
+        "type": "OrbitPbApi_CellularSleepSettings",
+        "id": 212
+      },
+      "cellularSleepAbort": {
+        "type": "OrbitPbApi_CellularSleepAbort",
+        "id": 213
+      },
+      "lorawanSettings": {
+        "type": "OrbitPbApi_LorawanSettings",
+        "id": 206
+      },
+      "getLorawanStatus": {
+        "type": "OrbitPbApi_getLorawanStatus",
+        "id": 207
+      },
+      "lorawanStatus": {
+        "type": "OrbitPbApi_LorawanStatus",
+        "id": 208
+      },
+      "getApList": {
+        "type": "OrbitPbApi_GetApList",
+        "id": 32
+      },
+      "apList": {
+        "type": "OrbitPbApi_ApList",
+        "id": 33
+      },
+      "networkConnect": {
+        "type": "OrbitPbApi_NetworkConnect",
+        "id": 34
+      },
+      "networkDisconnect": {
+        "type": "OrbitPbApi_NetworkDisconnect",
+        "id": 35
+      },
+      "getNetworkStatus": {
+        "type": "OrbitPbApi_GetNetworkStatus",
+        "id": 36
+      },
+      "networkStatus": {
+        "type": "OrbitPbApi_NetworkStatus",
+        "id": 37
+      },
+      "updateAvailable": {
+        "type": "OrbitPbApi_UpdateAvailable",
+        "id": 38
+      },
+      "updateBlockRequest": {
+        "type": "OrbitPbApi_UpdateBlockRequest",
+        "id": 39
+      },
+      "updateBlockResponse": {
+        "type": "OrbitPbApi_UpdateBlockResponse",
+        "id": 40
+      },
+      "updateGetProgress": {
+        "type": "OrbitPbApi_UpdateGetProgress",
+        "id": 70
+      },
+      "updateProgress": {
+        "type": "OrbitPbApi_UpdateProgress",
+        "id": 71
+      },
+      "mfrTestWifiTestStatus": {
+        "type": "OrbitPbApi_MfrTest_WifiTestStatus",
+        "id": 41
+      },
+      "mfrTestDutTestCommand": {
+        "type": "OrbitPbApi_MfrTest_DutTestCommand",
+        "id": 42
+      },
+      "mfrTestDutProvision": {
+        "type": "OrbitPbApi_MfrTest_DutProvision",
+        "id": 43
+      },
+      "mfrTestDutTestFinished": {
+        "type": "OrbitPbApi_MfrTest_DutTestFinished",
+        "id": 44
+      },
+      "bleBridgedDevices": {
+        "type": "OrbitPbApi_BleBridgedDevices",
+        "id": 85
+      },
+      "bleBridgedCmd": {
+        "type": "OrbitPbApi_BleBridgedCmd",
+        "id": 86
+      },
+      "bleBridgedMsgs": {
+        "type": "OrbitPbApi_BleBridgedMessages",
+        "id": 87
+      },
+      "bleBridgedPendMsgQueue": {
+        "type": "OrbitPbApi_BleBridgedPendMsgQueue",
+        "id": 91
+      },
+      "bleBridgedDeviceStatus": {
+        "type": "OrbitPbApi_BleBridgedDeviceStatus",
+        "id": 92
+      },
+      "checkIn": {
+        "type": "OrbitPbApi_CheckIn",
+        "id": 90
+      },
+      "ack": {
+        "type": "OrbitPbApi_Ack",
+        "id": 100
+      },
+      "agDeviceInfo": {
+        "type": "BhyveAgApi_AgDeviceInfo",
+        "id": 1005
+      },
+      "restartDevice": {
+        "type": "BhyveAgApi_RestartDevice",
+        "id": 1000
+      },
+      "agClearFaults": {
+        "type": "BhyveAgApi_ClearFaults",
+        "id": 1001
+      },
+      "cpSetSettings": {
+        "type": "BhyveAgApi_CP_Settings",
+        "id": 1021
+      },
+      "cpControlStatus": {
+        "type": "BhyveAgApi_CP_ControlStatus",
+        "id": 1022
+      },
+      "cpGetControlStatus": {
+        "type": "BhyveAgApi_CP_ControlStatus",
+        "id": 1023
+      },
+      "cpPumpProgram": {
+        "type": "BhyveAgApi_CP_Program",
+        "id": 1024
+      },
+      "cpEndGunProgram": {
+        "type": "BhyveAgApi_CP_Program",
+        "id": 1025
+      },
+      "cpAuxiliaryProgram": {
+        "type": "BhyveAgApi_CP_Program",
+        "id": 1026
+      },
+      "cpVriProgram": {
+        "type": "BhyveAgApi_CP_Program",
+        "id": 1027
+      },
+      "cpStatusDebug": {
+        "type": "BhyveAgApi_CP_ControlStatusDebug",
+        "id": 1028
+      },
+      "cpStepProgram": {
+        "type": "BhyveAgApi_CP_StepProgram",
+        "id": 1030
+      },
+      "cpGetTSMValue": {
+        "type": "BhyveAgApi_GetTSMValue",
+        "id": 1029
+      },
+      "cpSetMac": {
+        "type": "BhyveAgApi_SetMac",
+        "id": 1040
+      },
+      "cpMfrTest": {
+        "type": "BhyveAgApi_CP_MfrTest",
+        "id": 1100
+      },
+      "cpGetMfrTest": {
+        "type": "BhyveAgApi_CP_MfrTest",
+        "id": 1101
+      },
+      "agGetApList": {
+        "type": "BhyveAgApi_Ag_GetApList",
+        "id": 63
+      },
+      "radioConfigure": {
+        "type": "BhyveAgApi_RadioConfigure",
+        "id": 64
+      },
+      "getRadioConfigStatus": {
+        "type": "BhyveAgApi_GetRadioConfigStatus",
+        "id": 65
+      },
+      "radioConfigStatus": {
+        "type": "BhyveAgApi_RadioConfigStatus",
+        "id": 66
+      },
+      "resetRadioConfigure": {
+        "type": "BhyveAgApi_ResetRadioConfigure",
+        "id": 67
+      },
+      "cpcRadioStatus": {
+        "type": "BhyveAgApi_CPCRadioStatus",
+        "id": 68
+      },
+      "getIpRadioData": {
+        "type": "BhyveAgApi_GetIpRadioData",
+        "id": 1070
+      },
+      "setIpRadioData": {
+        "type": "BhyveAgApi_SetIpRadioData",
+        "id": 1071
+      },
+      "startAntennaAlignment": {
+        "type": "BhyveAgApi_StartAntennaAlignnment",
+        "id": 1072
+      },
+      "stopAntennaAlignment": {
+        "type": "BhyveAgApi_StopAntennaAlignnment",
+        "id": 1073
+      },
+      "pingNetwork": {
+        "type": "BhyveAgApi_PingNetwork",
+        "id": 1074
+      },
+      "pingResults": {
+        "type": "BhyveAgApi_PingResults",
+        "id": 1075
+      },
+      "cpaLiteOnboard": {
+        "type": "BhyveAgApi_Cpa_Onboard",
+        "id": 80
+      },
+      "cpaLiteGetStatus": {
+        "type": "BhyveAgApi_Cpa_GetStatus",
+        "id": 81
+      },
+      "cpaLiteStatus": {
+        "type": "BhyveAgApi_Cpa_Status",
+        "id": 82
+      },
+      "cpaLiteSetSettings": {
+        "type": "BhyveAgApi_Cpa_SetSettings",
+        "id": 84
+      },
+      "cpaGetControlStatus": {
+        "type": "BhyveAgApi_CPA_ControlStatus",
+        "id": 1050
+      },
+      "cpaControlStatus": {
+        "type": "BhyveAgApi_CPA_ControlStatus",
+        "id": 1051
+      },
+      "cpaGetSettings": {
+        "type": "BhyveAgApi_CPA_Settings",
+        "id": 1052
+      },
+      "cpaSettings": {
+        "type": "BhyveAgApi_CPA_Settings",
+        "id": 1053
+      },
+      "getFlowSensorLogs": {
+        "type": "BhyveAgApi_GetFlowSensorLogs",
+        "id": 1054
+      },
+      "flowSensorLogs": {
+        "type": "BhyveAgApi_FlowSensorLogs",
+        "id": 1055
+      },
+      "gcGetStatus": {
+        "type": "BhyveAgApi_GC_GetStatus",
+        "id": 2000
+      },
+      "gcStatus": {
+        "type": "BhyveAgApi_GC_Status",
+        "id": 2001
+      },
+      "gcSetSettings": {
+        "type": "BhyveAgApi_GC_Settings",
+        "id": 2002
+      },
+      "gcControl": {
+        "type": "BhyveAgApi_GC_Control",
+        "id": 2008
+      },
+      "flush": {
+        "type": "BhyveAgApi_Flush",
+        "id": 2003
+      },
+      "gcFaultStatus": {
+        "type": "BhyveAgApi_GC_FaultStatus",
+        "id": 2004
+      },
+      "getAgLog": {
+        "type": "BhyveAgApi_GetLog",
+        "id": 2005
+      },
+      "agLog": {
+        "type": "BhyveAgApi_Log",
+        "id": 2006
+      },
+      "pumpControl": {
+        "type": "BhyveAgApi_PumpControl",
+        "id": 2007
+      },
+      "httpRequest": {
+        "type": "BhyveAgApi_HTTP_RequestResponse",
+        "id": 2009
+      },
+      "httpResponse": {
+        "type": "BhyveAgApi_HTTP_RequestResponse",
+        "id": 2010
+      },
+      "pnSecDevStatus": {
+        "type": "BhyveAgApi_PN_SecDevStatus",
+        "id": 2050
+      },
+      "pnSecDevCtl": {
+        "type": "BhyveAgApi_PN_SecDevControl",
+        "id": 2051
+      },
+      "cpaMfrTest": {
+        "type": "BhyveAgApi_Cpa_MfrTest",
+        "id": 1085
+      }
+    }
+  },
+  "OrbitPbApi_BleInitMsg": {
+    "edition": "proto2",
+    "fields": {
+      "bdAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "networkKey": {
+        "type": "bytes",
+        "id": 2
+      },
+      "advertType": {
+        "type": "uint32",
+        "id": 3
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 4
+      },
+      "networkProvisioned": {
+        "type": "bool",
+        "id": 5
+      },
+      "testMode": {
+        "type": "OrbitPbApi_TestMode",
+        "id": 6
+      }
+    }
+  },
+  "OrbitPbAPi_BleBridgeGetStatus": {
+    "edition": "proto2",
+    "fields": {
+      "includeFwVersion": {
+        "type": "bool",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbAPi_BleBridgeStatus": {
+    "edition": "proto2",
+    "fields": {
+      "bootloaderFwVersion": {
+        "type": "uint32",
+        "id": 1
+      },
+      "radioFwVersion": {
+        "type": "uint32",
+        "id": 2
+      },
+      "appFwVersion": {
+        "type": "uint32",
+        "id": 3
+      },
+      "isProvisioned": {
+        "type": "bool",
+        "id": 4
+      },
+      "nvmSettingsReceived": {
+        "type": "bool",
+        "id": 5
+      },
+      "gattClientConnected": {
+        "type": "bool",
+        "id": 6
+      },
+      "gattClientAddress": {
+        "type": "bytes",
+        "id": 7
+      },
+      "isAdvertising": {
+        "type": "bool",
+        "id": 8
+      },
+      "bleSettingsHash": {
+        "type": "uint32",
+        "id": 9
+      },
+      "bleBridgeDeviceStatus": {
+        "type": "OrbitPbApi_BleBridgedDeviceStatus",
+        "id": 10
+      }
+    }
+  },
+  "OrbitPbApi_BleEventData_DataBlock": {
+    "edition": "proto2",
+    "fields": {
+      "msgType": {
+        "type": "uint32",
+        "id": 1
+      },
+      "encrypt": {
+        "type": "bool",
+        "id": 2
+      },
+      "data": {
+        "type": "bytes",
+        "id": 3
+      }
+    }
+  },
+  "OrbitPbApi_BleEvent": {
+    "edition": "proto2",
+    "oneofs": {
+      "eventData": {
+        "oneof": [
+          "dataBlock",
+          "txResponse"
+        ]
+      }
+    },
+    "fields": {
+      "eventId": {
+        "type": "BleEventId",
+        "id": 1
+      },
+      "srcId": {
+        "type": "uint32",
+        "id": 2
+      },
+      "destId": {
+        "type": "uint32",
+        "id": 3
+      },
+      "dataBlock": {
+        "type": "OrbitPbApi_BleEventData_DataBlock",
+        "id": 10
+      },
+      "txResponse": {
+        "type": "bool",
+        "id": 11
+      }
+    },
+    "nested": {
+      "BleEventId": {
+        "values": {
+          "bleEventId_resetConnection": 0,
+          "bleEventId_dataBlock_rx": 1,
+          "bleEventId_dataBlock_tx": 2,
+          "bleEventId_txResponse": 3
+        }
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedMsgInt": {
+    "edition": "proto2",
+    "oneofs": {
+      "devSpecific": {
+        "oneof": [
+          "bleDevSpecRawData"
+        ]
+      }
+    },
+    "fields": {
+      "msgTimestamp": {
+        "type": "uint32",
+        "id": 1
+      },
+      "phyInterface": {
+        "type": "OrbitPbApi_BlePhyInterface",
+        "id": 2
+      },
+      "channel": {
+        "type": "uint32",
+        "id": 3
+      },
+      "rssi": {
+        "type": "int32",
+        "id": 4
+      },
+      "connectable": {
+        "type": "bool",
+        "id": 5
+      },
+      "deviceId": {
+        "type": "OrbitPbApi_BleDeviceId",
+        "id": 6
+      },
+      "deviceSn": {
+        "type": "uint32",
+        "id": 7
+      },
+      "bootloaderMode": {
+        "type": "bool",
+        "id": 8
+      },
+      "mfrTestMode": {
+        "type": "OrbitPbApi_TestMode",
+        "id": 9
+      },
+      "provisioned": {
+        "type": "bool",
+        "id": 10
+      },
+      "msgSeqNum": {
+        "type": "uint32",
+        "id": 11
+      },
+      "firmwareVersion": {
+        "type": "uint32",
+        "id": 12
+      },
+      "cfgHash": {
+        "type": "uint32",
+        "id": 13
+      },
+      "deviceFlags": {
+        "type": "uint32",
+        "id": 14
+      },
+      "onboardComplete": {
+        "type": "bool",
+        "id": 15
+      },
+      "identifyEnabled": {
+        "type": "bool",
+        "id": 16
+      },
+      "bleDevSpecRawData": {
+        "type": "OrbitPbApi_BleDevSpec_RawData",
+        "id": 19
+      }
+    }
+  },
+  "OrbitPbApi_BleBridgedMessagesInt": {
+    "edition": "proto2",
+    "fields": {
+      "msgEntries": {
+        "rule": "repeated",
+        "type": "OrbitPbApi_BleBridgedMsgInt",
+        "id": 1
+      }
+    }
+  },
+  "OrbitPbApi_IpcMsg": {
+    "edition": "proto2",
+    "oneofs": {
+      "ipcMsg": {
+        "oneof": [
+          "bleInitMsg",
+          "enterBootloader",
+          "bleBridgedDevices",
+          "bleBridgedMsgs",
+          "bleBridgeGetStatus",
+          "bleBridgeStatus",
+          "bleEvent",
+          "blePendMsgQueue",
+          "bleRadioTest"
+        ]
+      }
+    },
+    "fields": {
+      "bleInitMsg": {
+        "type": "OrbitPbApi_BleInitMsg",
+        "id": 1
+      },
+      "enterBootloader": {
+        "type": "bool",
+        "id": 2
+      },
+      "bleBridgedDevices": {
+        "type": "OrbitPbApi_BleBridgedDevices",
+        "id": 3
+      },
+      "bleBridgedMsgs": {
+        "type": "OrbitPbApi_BleBridgedMessagesInt",
+        "id": 4
+      },
+      "bleBridgeGetStatus": {
+        "type": "OrbitPbAPi_BleBridgeGetStatus",
+        "id": 5
+      },
+      "bleBridgeStatus": {
+        "type": "OrbitPbAPi_BleBridgeStatus",
+        "id": 6
+      },
+      "bleEvent": {
+        "type": "OrbitPbApi_BleEvent",
+        "id": 7
+      },
+      "blePendMsgQueue": {
+        "type": "OrbitPbApi_BleBridgedPendMsgQueue",
+        "id": 8
+      },
+      "bleRadioTest": {
+        "type": "OrbitPbApi_BleRadioTest",
+        "id": 9
+      }
+    }
+  },
+  "BhyveAgApi_SecType": {
+    "edition": "proto2",
+    "values": {
+      "_open": 0,
+      "_wpa1": 1,
+      "_wpa2": 2,
+      "_wep": 3,
+      "_wpaMixed": 4,
+      "_unknown": 5
+    }
+  },
+  "BhyveAgApi_DeviceType": {
+    "edition": "proto2",
+    "values": {
+      "cpbGlinet": 0,
+      "cpb5ac12016": 1,
+      "cpcGlinet": 2,
+      "cpc5acGen2": 3,
+      "cpa": 4,
+      "murataLora": 5,
+      "cpc": 6
+    }
+  },
+  "BhyveAgApi_Region": {
+    "edition": "proto2",
+    "values": {
+      "EU863_870": 0,
+      "RU864_870": 1,
+      "IN865_867": 2,
+      "AU915_928": 3,
+      "US902_928": 4,
+      "EU433": 5,
+      "CN779_787": 6,
+      "CN470_510": 7
+    }
+  },
+  "BhyveAgApi_RadioPurpose": {
+    "edition": "proto2",
+    "values": {
+      "radioPurpose_baseStationClient": 0,
+      "radioPurpose_baseStationAp": 1,
+      "radioPurpose_baseStationRouter": 7,
+      "radioPurpose_repeaterClient": 2,
+      "radioPurpose_repeaterAp": 3,
+      "radioPurpose_repeaterRouter": 4,
+      "radioPurpose_cpcClient": 5,
+      "radioPurpose_cpcRouter": 6
+    }
+  },
+  "BhyveAgApi_ChannelWidth": {
+    "edition": "proto2",
+    "values": {
+      "channelWidth_20": 0,
+      "channelWidth_40": 2
+    }
+  },
+  "BhyveAgApi_FlowSensorParamEntry": {
+    "edition": "proto2",
+    "fields": {
+      "kValue": {
+        "type": "float",
+        "id": 1
+      },
+      "offset": {
+        "type": "float",
+        "id": 2
+      },
+      "flowSensorId": {
+        "type": "uint32",
+        "id": 3
+      },
+      "leakGallons": {
+        "type": "float",
+        "id": 4
+      },
+      "leakSeconds": {
+        "type": "uint32",
+        "id": 5
+      }
+    }
+  },
+  "BhyveAgApi_FlowSensorParams": {
+    "edition": "proto2",
+    "fields": {
+      "entries": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_FlowSensorParamEntry",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_AgDeviceInfo": {
+    "edition": "proto2",
+    "fields": {
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 1
+      },
+      "hwVersion": {
+        "type": "string",
+        "id": 2
+      },
+      "fwVersion": {
+        "type": "string",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_RestartDevice": {
+    "edition": "proto2",
+    "fields": {
+      "radioPurpose": {
+        "type": "BhyveAgApi_RadioPurpose",
+        "id": 1
+      },
+      "radioNumber": {
+        "type": "uint32",
+        "id": 2
+      },
+      "bootInSshMode": {
+        "type": "bool",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_SetMac": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_ClearFaults": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_Ag_GetApList": {
+    "edition": "proto2",
+    "fields": {
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 1
+      },
+      "radioPurpose": {
+        "type": "BhyveAgApi_RadioPurpose",
+        "id": 2
+      },
+      "radioNumber": {
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_RadioConfigure": {
+    "edition": "proto2",
+    "fields": {
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 1
+      },
+      "hostname": {
+        "type": "bytes",
+        "id": 2
+      },
+      "sshPassword": {
+        "type": "bytes",
+        "id": 3
+      },
+      "ssid": {
+        "type": "bytes",
+        "id": 4
+      },
+      "wifiPassword": {
+        "type": "bytes",
+        "id": 5
+      },
+      "secType": {
+        "type": "BhyveAgApi_SecType",
+        "id": 6
+      },
+      "useDhcp": {
+        "type": "bool",
+        "id": 7
+      },
+      "ipv4Address": {
+        "type": "uint32",
+        "id": 8
+      },
+      "ipv4SubnetMask": {
+        "type": "uint32",
+        "id": 9
+      },
+      "ipv4Gateway": {
+        "type": "uint32",
+        "id": 10
+      },
+      "ipv4PrimaryDns": {
+        "type": "uint32",
+        "id": 11
+      },
+      "ipv4SecondaryDns": {
+        "type": "uint32",
+        "id": 12
+      },
+      "baseUsername": {
+        "type": "bytes",
+        "id": 13
+      },
+      "basePassword": {
+        "type": "bytes",
+        "id": 14
+      },
+      "cpaMacAddress": {
+        "type": "bytes",
+        "id": 15
+      },
+      "cpaKey": {
+        "type": "bytes",
+        "id": 16
+      },
+      "region": {
+        "type": "BhyveAgApi_Region",
+        "id": 17
+      },
+      "radioPurpose": {
+        "type": "BhyveAgApi_RadioPurpose",
+        "id": 18
+      },
+      "radioNumber": {
+        "type": "uint32",
+        "id": 19
+      },
+      "channelWidth": {
+        "type": "BhyveAgApi_ChannelWidth",
+        "id": 20
+      },
+      "centerFrequency": {
+        "type": "uint32",
+        "id": 21
+      },
+      "txPower": {
+        "type": "int32",
+        "id": 22
+      },
+      "countryCode": {
+        "type": "uint32",
+        "id": 23
+      },
+      "confirmationHostname": {
+        "type": "bytes",
+        "id": 25
+      },
+      "deviceName": {
+        "type": "bytes",
+        "id": 26
+      },
+      "useWifi": {
+        "type": "bool",
+        "id": 27
+      }
+    }
+  },
+  "BhyveAgApi_GetRadioConfigStatus": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_RadioConfigStatus": {
+    "edition": "proto2",
+    "fields": {
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 1
+      },
+      "radioConfigState": {
+        "type": "State",
+        "id": 2
+      },
+      "radioConfigStatus": {
+        "type": "Status",
+        "id": 3
+      },
+      "radioPurpose": {
+        "type": "BhyveAgApi_RadioPurpose",
+        "id": 4
+      },
+      "radioConfigured": {
+        "type": "bool",
+        "id": 5
+      },
+      "pingedConfirmationHostname": {
+        "type": "bool",
+        "id": 6
+      }
+    },
+    "nested": {
+      "State": {
+        "values": {
+          "state_unknown": 0,
+          "state_idle": 1,
+          "state_error": 2,
+          "state_connecting": 3,
+          "state_changeSshPassword": 4,
+          "state_configWiFi": 5,
+          "state_writeRadioConfig": 6,
+          "state_configSsid": 7,
+          "state_configPassphrase": 8,
+          "state_reConnect": 9,
+          "state_waitingForWiFiConnect": 10,
+          "state_scanningForBaseStations": 11,
+          "state_gettingRadioData": 12
+        }
+      },
+      "Status": {
+        "values": {
+          "status_unknown": 0,
+          "status_idle": 1,
+          "status_cmdInProgress": 2,
+          "status_cmdSuccess": 3,
+          "status_error_sshLibInitFailed": 4,
+          "status_error_sshConnectFail_hostNotFound": 5,
+          "status_error_sshConnectFail_handshakeFailed": 6,
+          "status_error_sshConnectFail_incorrectAuth": 7,
+          "status_error_cmdFailed": 8,
+          "status_error_unknown": 9
+        }
+      }
+    }
+  },
+  "BhyveAgApi_CPCRadioStatus": {
+    "edition": "proto2",
+    "fields": {
+      "deviceType": {
+        "type": "BhyveAgApi_DeviceType",
+        "id": 1
+      },
+      "radioState": {
+        "type": "RadioState",
+        "id": 2
+      },
+      "radioStatus": {
+        "type": "RadioStatus",
+        "id": 3
+      },
+      "radioAction": {
+        "type": "RadioAction",
+        "id": 4
+      },
+      "error": {
+        "type": "bytes",
+        "id": 5
+      },
+      "glinetRadioConfigured": {
+        "type": "bool",
+        "id": 11
+      },
+      "fieldRadioConfigured": {
+        "type": "bool",
+        "id": 10
+      },
+      "apScanComplete": {
+        "type": "bool",
+        "id": 12
+      },
+      "pingedBaseStationRouter": {
+        "type": "bool",
+        "id": 13
+      },
+      "pingedConfirmationHostname": {
+        "type": "bool",
+        "id": 14
+      },
+      "glinetCustomNetworkConfigured": {
+        "type": "bool",
+        "id": 15
+      }
+    },
+    "nested": {
+      "RadioState": {
+        "values": {
+          "radioState_idle": 0,
+          "radioState_wifiWait": 1,
+          "radioState_findIp": 2,
+          "radioState_setStatic": 3,
+          "radioState_pingWait": 4,
+          "radioState_sshInit": 5,
+          "radioState_action": 6,
+          "radioState_setDhcp": 7,
+          "radioState_confirmation": 8,
+          "radioState_unknown": 9
+        }
+      },
+      "RadioStatus": {
+        "values": {
+          "radioStatus_ok": 0,
+          "radioStatus_error_wifiTimout": 1,
+          "radioStatus_error_pingTimout": 2,
+          "radioStatus_error_sshFailed": 3,
+          "radioStatus_error_sshAuthenticateFailed": 4,
+          "radioStatus_error_actionFailed": 5,
+          "radioStatus_error_confirmationFailed": 6,
+          "radioStatus_error_outOfMemory": 8,
+          "radioStatus_error_unknown": 7
+        }
+      },
+      "RadioAction": {
+        "values": {
+          "radioAction_unknown": 0,
+          "radioAction_ubntApScan": 1,
+          "radioAction_ubntConfig": 2,
+          "radioAction_ubntFindIpAddress": 3,
+          "radioAction_glinetConfig": 4,
+          "radioAction_cpaConfig": 5,
+          "radioAction_antennaAlign": 6
+        }
+      }
+    }
+  },
+  "BhyveAgApi_ResetRadioConfigure": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_Cpa_Onboard": {
+    "edition": "proto2",
+    "fields": {
+      "centerLongitude": {
+        "type": "float",
+        "id": 1
+      },
+      "centerLatitude": {
+        "type": "float",
+        "id": 2
+      },
+      "setChannel": {
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_Cpa_GetStatus": {
+    "edition": "proto2",
+    "fields": {
+      "coordinates": {
+        "type": "bool",
+        "id": 1
+      },
+      "numberOfSatellites": {
+        "type": "bool",
+        "id": 2
+      },
+      "fixQuality": {
+        "type": "bool",
+        "id": 3
+      },
+      "utcTime": {
+        "type": "bool",
+        "id": 4
+      },
+      "position": {
+        "type": "bool",
+        "id": 5
+      },
+      "adc": {
+        "type": "bool",
+        "id": 6
+      },
+      "gpsFrequency": {
+        "type": "bool",
+        "id": 7
+      },
+      "highVoltageOutputs": {
+        "type": "bool",
+        "id": 8
+      },
+      "firmwareVersion": {
+        "type": "bool",
+        "id": 9
+      },
+      "hardwareVersion": {
+        "type": "bool",
+        "id": 10
+      },
+      "murataFirmwareVersion": {
+        "type": "bool",
+        "id": 18
+      },
+      "connected": {
+        "type": "bool",
+        "id": 11
+      },
+      "region": {
+        "type": "bool",
+        "id": 12
+      },
+      "channel": {
+        "type": "bool",
+        "id": 13
+      },
+      "spreadingFactor": {
+        "type": "bool",
+        "id": 14
+      },
+      "state": {
+        "type": "bool",
+        "id": 15
+      },
+      "remoteMode": {
+        "type": "bool",
+        "id": 17
+      },
+      "centerLongitude": {
+        "type": "bool",
+        "id": 20
+      },
+      "centerLatitude": {
+        "type": "bool",
+        "id": 21
+      },
+      "onboardingDenied": {
+        "type": "bool",
+        "id": 22
+      },
+      "setChannel": {
+        "type": "uint32",
+        "id": 30
+      }
+    }
+  },
+  "BhyveAgApi_Cpa_HighVoltageOutput": {
+    "edition": "proto2",
+    "fields": {
+      "mode": {
+        "type": "bool",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_Cpa_Status": {
+    "edition": "proto2",
+    "fields": {
+      "longitude": {
+        "type": "float",
+        "id": 1
+      },
+      "latitude": {
+        "type": "float",
+        "id": 2
+      },
+      "numberOfSatellites": {
+        "type": "uint32",
+        "id": 3
+      },
+      "fixQuality": {
+        "type": "uint32",
+        "id": 4
+      },
+      "utcTime": {
+        "type": "uint32",
+        "id": 5
+      },
+      "position": {
+        "type": "float",
+        "id": 6
+      },
+      "analogInput": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 7
+      },
+      "gpsFrequency": {
+        "type": "uint32",
+        "id": 8
+      },
+      "highVoltageOutputs": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_Cpa_HighVoltageOutput",
+        "id": 9
+      },
+      "firmwareVersion": {
+        "type": "uint32",
+        "id": 10
+      },
+      "hardwareVersion": {
+        "type": "uint32",
+        "id": 11
+      },
+      "murataFirmwareVersion": {
+        "type": "uint32",
+        "id": 18
+      },
+      "connected": {
+        "type": "bool",
+        "id": 12
+      },
+      "state": {
+        "type": "State",
+        "id": 13
+      },
+      "channel": {
+        "type": "uint32",
+        "id": 14
+      },
+      "spreadingFactor": {
+        "type": "uint32",
+        "id": 15
+      },
+      "region": {
+        "type": "BhyveAgApi_Region",
+        "id": 16
+      },
+      "remoteMode": {
+        "type": "bool",
+        "id": 17
+      },
+      "centerLongitude": {
+        "type": "float",
+        "id": 20
+      },
+      "centerLatitude": {
+        "type": "float",
+        "id": 21
+      },
+      "onboardingDenied": {
+        "type": "bool",
+        "id": 22
+      },
+      "betaFirmwareVersion": {
+        "type": "uint32",
+        "id": 23
+      }
+    },
+    "nested": {
+      "State": {
+        "values": {
+          "state_idle": 0,
+          "state_channelSelect": 1,
+          "state_checkStatus": 2,
+          "state_unknown": 3
+        }
+      }
+    }
+  },
+  "BhyveAgApi_Cpa_SetSettings": {
+    "edition": "proto2",
+    "fields": {
+      "gpsFrequency": {
+        "type": "uint32",
+        "id": 1
+      },
+      "remoteMode": {
+        "type": "bool",
+        "id": 2
+      },
+      "highVoltageOutputs": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_Cpa_HighVoltageOutput",
+        "id": 3
+      },
+      "centerLongitude": {
+        "type": "float",
+        "id": 4
+      },
+      "centerLatitude": {
+        "type": "float",
+        "id": 5
+      },
+      "factoryResetCode": {
+        "type": "bytes",
+        "id": 6
+      },
+      "channel": {
+        "type": "uint32",
+        "id": 7
+      }
+    }
+  },
+  "BhyveAgApi_Cpa_MfrTest": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_RepeaterConfig": {
+    "edition": "proto2",
+    "fields": {
+      "repeaterDestinationId": {
+        "type": "bytes",
+        "id": 1
+      },
+      "timesRepeated": {
+        "type": "uint32",
+        "id": 2
+      },
+      "rssi": {
+        "type": "int32",
+        "id": 3
+      },
+      "snr": {
+        "type": "int32",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_FlowSensorLog": {
+    "edition": "proto2",
+    "fields": {
+      "timestamp": {
+        "type": "uint32",
+        "id": 1
+      },
+      "dailyTotalGal": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_FlowSensorLogs": {
+    "edition": "proto2",
+    "fields": {
+      "log": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_FlowSensorLog",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_GetFlowSensorLogs": {
+    "edition": "proto2",
+    "fields": {
+      "startTimestamp": {
+        "type": "uint32",
+        "id": 1
+      },
+      "endTimestamp": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_IpRadioData": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "ipAddress": {
+        "type": "bytes",
+        "id": 2
+      },
+      "signalRx": {
+        "type": "int32",
+        "id": 3
+      },
+      "signalTx": {
+        "type": "int32",
+        "id": 4
+      },
+      "noisefloor": {
+        "type": "int32",
+        "id": 5
+      },
+      "uptime": {
+        "type": "int32",
+        "id": 6
+      },
+      "fwVersion": {
+        "type": "bytes",
+        "id": 7
+      },
+      "downLinkCapacity": {
+        "type": "int32",
+        "id": 8
+      },
+      "upLinkCapacity": {
+        "type": "int32",
+        "id": 9
+      },
+      "cableLen": {
+        "type": "int32",
+        "id": 10
+      },
+      "connectionTime": {
+        "type": "int32",
+        "id": 11
+      },
+      "txPower": {
+        "type": "int32",
+        "id": 12
+      },
+      "countryCode": {
+        "type": "int32",
+        "id": 13
+      }
+    }
+  },
+  "BhyveAgApi_IpRadioAccessPointData": {
+    "edition": "proto2",
+    "fields": {
+      "data": {
+        "type": "BhyveAgApi_IpRadioData",
+        "id": 1
+      },
+      "ssid": {
+        "type": "bytes",
+        "id": 2
+      },
+      "passphrase": {
+        "type": "bytes",
+        "id": 3
+      },
+      "channelWidth": {
+        "type": "BhyveAgApi_ChannelWidth",
+        "id": 4
+      },
+      "centerFrequency": {
+        "type": "uint32",
+        "id": 5
+      },
+      "clients": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_IpRadioData",
+        "id": 10
+      },
+      "clientCount": {
+        "type": "uint32",
+        "id": 11
+      }
+    }
+  },
+  "BhyveAgApi_GetIpRadioData": {
+    "edition": "proto2",
+    "fields": {
+      "radioPurpose": {
+        "type": "BhyveAgApi_RadioPurpose",
+        "id": 1
+      },
+      "radioNumber": {
+        "type": "uint32",
+        "id": 2
+      },
+      "macAddress": {
+        "type": "bytes",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_SetIpRadioData": {
+    "edition": "proto2",
+    "fields": {
+      "radioPurpose": {
+        "type": "BhyveAgApi_RadioPurpose",
+        "id": 1
+      },
+      "radioNumber": {
+        "type": "uint32",
+        "id": 2
+      },
+      "clientRadio": {
+        "type": "BhyveAgApi_IpRadioData",
+        "id": 3
+      },
+      "accessPointRadio": {
+        "type": "BhyveAgApi_IpRadioAccessPointData",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_StartAntennaAlignnment": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_StopAntennaAlignnment": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_PingNetwork": {
+    "edition": "proto2",
+    "fields": {
+      "hostname": {
+        "rule": "repeated",
+        "type": "bytes",
+        "id": 1
+      },
+      "factoryDefaultCheck": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_PingResultEntry": {
+    "edition": "proto2",
+    "fields": {
+      "hostname": {
+        "type": "bytes",
+        "id": 1
+      },
+      "success": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_PingResults": {
+    "edition": "proto2",
+    "fields": {
+      "results": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PingResultEntry",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_VRIZone": {
+    "edition": "proto2",
+    "fields": {
+      "mode": {
+        "type": "Mode",
+        "id": 1
+      },
+      "relayIndex": {
+        "type": "uint32",
+        "id": 2
+      },
+      "pulseOnSec": {
+        "type": "uint32",
+        "id": 3
+      },
+      "pulseOffSec": {
+        "type": "uint32",
+        "id": 4
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "pulse": 2
+        }
+      }
+    }
+  },
+  "BhyveAgApi_EndGun": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "relayIndex": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_ProgramSector": {
+    "edition": "proto2",
+    "fields": {
+      "startDegree": {
+        "type": "float",
+        "id": 1
+      },
+      "endDegree": {
+        "type": "float",
+        "id": 2
+      },
+      "direction": {
+        "type": "TravelDirection",
+        "id": 3
+      },
+      "speedPercent": {
+        "type": "float",
+        "id": 4
+      },
+      "endGuns": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_EndGun",
+        "id": 5
+      },
+      "auxiliary": {
+        "rule": "repeated",
+        "type": "bool",
+        "id": 6
+      }
+    },
+    "nested": {
+      "TravelDirection": {
+        "values": {
+          "forward": 0,
+          "reverse": 1,
+          "both": 2
+        }
+      }
+    }
+  },
+  "BhyveAgApi_CP_Program": {
+    "edition": "proto2",
+    "fields": {
+      "programId": {
+        "type": "bytes",
+        "id": 1
+      },
+      "lastUpdatedTime": {
+        "type": "uint32",
+        "id": 2
+      },
+      "sectors": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_ProgramSector",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_Location": {
+    "edition": "proto2",
+    "fields": {
+      "latitude": {
+        "type": "float",
+        "id": 1
+      },
+      "longitude": {
+        "type": "float",
+        "id": 2
+      },
+      "numberOfSatellites": {
+        "type": "uint32",
+        "id": 3
+      },
+      "fixQuality": {
+        "type": "uint32",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_CPA_ControlStatus": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "linkConnected": {
+        "type": "bool",
+        "id": 2
+      },
+      "rssi": {
+        "type": "int32",
+        "id": 3
+      },
+      "snr": {
+        "type": "int32",
+        "id": 4
+      },
+      "secSinceLastMsg": {
+        "type": "uint32",
+        "id": 5
+      },
+      "fwVersion": {
+        "type": "string",
+        "id": 6
+      },
+      "hwVersion": {
+        "type": "string",
+        "id": 7
+      },
+      "murataFwVersion": {
+        "type": "string",
+        "id": 8
+      },
+      "onboarded": {
+        "type": "bool",
+        "id": 9
+      },
+      "controlMode": {
+        "type": "ControlMode",
+        "id": 10
+      },
+      "highVoltageOutput": {
+        "rule": "repeated",
+        "type": "bool",
+        "id": 11
+      },
+      "mode": {
+        "type": "Mode",
+        "id": 12
+      },
+      "analogInput": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 13
+      },
+      "moduleConnected": {
+        "type": "bool",
+        "id": 14
+      },
+      "channel": {
+        "type": "int32",
+        "id": 16
+      },
+      "location": {
+        "type": "BhyveAgApi_Location",
+        "id": 21
+      },
+      "position": {
+        "type": "float",
+        "id": 25
+      },
+      "region": {
+        "type": "BhyveAgApi_Region",
+        "id": 15
+      },
+      "firstChannel": {
+        "type": "uint32",
+        "id": 17
+      },
+      "spreadingFactor": {
+        "type": "uint32",
+        "id": 18
+      },
+      "powerOutput": {
+        "type": "uint32",
+        "id": 19
+      },
+      "bandWidth": {
+        "type": "uint32",
+        "id": 20
+      },
+      "centerLocation": {
+        "type": "BhyveAgApi_Location",
+        "id": 22
+      },
+      "gatewayMacAddress": {
+        "type": "bytes",
+        "id": 23
+      },
+      "factoryDefaults": {
+        "type": "bool",
+        "id": 24
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "program": 2,
+          "onWhenWet": 3
+        }
+      },
+      "ControlMode": {
+        "values": {
+          "panel": 0,
+          "remote": 1
+        }
+      }
+    }
+  },
+  "BhyveAgApi_Lora_ControlStatus": {
+    "edition": "proto2",
+    "fields": {
+      "moduleConnected": {
+        "type": "bool",
+        "id": 1
+      },
+      "channel": {
+        "type": "uint32",
+        "id": 2
+      },
+      "fwVersion": {
+        "type": "string",
+        "id": 3
+      },
+      "hwVersion": {
+        "type": "string",
+        "id": 4
+      },
+      "status": {
+        "type": "Status",
+        "id": 5
+      },
+      "startChannel": {
+        "type": "uint32",
+        "id": 6
+      },
+      "spreadingFactor": {
+        "type": "uint32",
+        "id": 7
+      },
+      "powerOutput": {
+        "type": "uint32",
+        "id": 8
+      }
+    },
+    "nested": {
+      "Status": {
+        "values": {
+          "state_idle": 0,
+          "state_channelSelect": 1,
+          "state_checkStatus": 2,
+          "state_unknown": 3
+        }
+      }
+    }
+  },
+  "BhyveAgApi_Fault": {
+    "edition": "proto2",
+    "fields": {
+      "type": {
+        "type": "Type",
+        "id": 1
+      },
+      "threshold": {
+        "type": "float",
+        "id": 2
+      },
+      "timeout": {
+        "type": "uint32",
+        "id": 3
+      }
+    },
+    "nested": {
+      "Type": {
+        "values": {
+          "none": 0,
+          "safety": 1,
+          "lowPressure": 2,
+          "highPressure": 3,
+          "centerPressureNeverReached": 4,
+          "lowTemperature": 5,
+          "lowVoltage": 6,
+          "gps": 7,
+          "endGun": 8,
+          "outOfBounds": 9,
+          "stuckOnBarrier": 10,
+          "misAlignedTower": 11,
+          "cpaDisconnected": 12,
+          "cpaPressureNeverReached": 13,
+          "noCpaSetAsGps": 14,
+          "gpsCpaDisconnected": 15,
+          "gpsTooFewSatellites": 16,
+          "cpaLowPressure": 17,
+          "cpaHighPressure": 18,
+          "virtualOverwateringTimer": 19
+        }
+      }
+    }
+  },
+  "BhyveAgApi_timedRotation": {
+    "edition": "proto2",
+    "fields": {
+      "endTime": {
+        "type": "uint32",
+        "id": 1
+      },
+      "endPosition": {
+        "type": "float",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_ratchetMode": {
+    "edition": "proto2",
+    "fields": {
+      "forwardTravelDegrees": {
+        "type": "uint32",
+        "id": 1
+      },
+      "forwardTravelSpeed": {
+        "type": "float",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_SpeedMode": {
+    "edition": "proto2",
+    "fields": {
+      "currentSpeed": {
+        "type": "float",
+        "id": 1
+      },
+      "mode": {
+        "type": "Mode",
+        "id": 2
+      },
+      "manualSpeed": {
+        "type": "float",
+        "id": 3
+      },
+      "timedRotation": {
+        "type": "BhyveAgApi_timedRotation",
+        "id": 4
+      },
+      "ratchetMode": {
+        "type": "BhyveAgApi_ratchetMode",
+        "id": 5
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "mode_manual": 0,
+          "mode_vriSectorprogram": 1,
+          "mode_timedRotation": 2,
+          "mode_ratchetMode": 3
+        }
+      }
+    }
+  },
+  "BhyveAgApi_PumpMode": {
+    "edition": "proto2",
+    "fields": {
+      "status": {
+        "type": "Status",
+        "id": 1
+      },
+      "mode": {
+        "type": "Mode",
+        "id": 2
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "mode_off": 0,
+          "mode_on": 1,
+          "mode_program": 2,
+          "mode_unknown": 3
+        }
+      },
+      "Status": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "off_waitingForGps": 2,
+          "off_restartDelay": 3,
+          "on_twoMinuteTransition": 4,
+          "unknown": 5
+        }
+      }
+    }
+  },
+  "BhyveAgApi_AuxMode": {
+    "edition": "proto2",
+    "fields": {
+      "status": {
+        "type": "Status",
+        "id": 1
+      },
+      "mode": {
+        "type": "Mode",
+        "id": 2
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "mode_off": 0,
+          "mode_on": 1,
+          "mode_program": 2,
+          "mode_onUntilBarrier": 3
+        }
+      },
+      "Status": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "off_waitingOnGps": 2,
+          "off_waitingOnPressure": 3,
+          "off_waitingOnPump": 4,
+          "onUntilBarrier": 5,
+          "unknown": 6
+        }
+      }
+    }
+  },
+  "BhyveAgApi_LocationStop": {
+    "edition": "proto2",
+    "fields": {
+      "enabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "endPosition": {
+        "type": "float",
+        "id": 2
+      },
+      "numOfPasses": {
+        "type": "uint32",
+        "id": 3
+      },
+      "preset": {
+        "type": "bytes",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_CP_ControlStatus": {
+    "edition": "proto2",
+    "fields": {
+      "sequenceNumber": {
+        "type": "uint32",
+        "id": 1
+      },
+      "controlMode": {
+        "type": "ControlMode",
+        "id": 2
+      },
+      "drive": {
+        "type": "Drive",
+        "id": 3
+      },
+      "pump": {
+        "type": "BhyveAgApi_PumpMode",
+        "id": 4
+      },
+      "auxiliaries": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_AuxMode",
+        "id": 5
+      },
+      "speed": {
+        "type": "BhyveAgApi_SpeedMode",
+        "id": 6
+      },
+      "physicalBarrierMode": {
+        "type": "BarrierMode",
+        "id": 7
+      },
+      "virtualBarrierMode": {
+        "type": "BarrierMode",
+        "id": 8
+      },
+      "locationStop": {
+        "type": "BhyveAgApi_LocationStop",
+        "id": 9
+      },
+      "cpas": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_CPA_ControlStatus",
+        "id": 10
+      },
+      "degree": {
+        "type": "float",
+        "id": 11
+      },
+      "deadReckoning": {
+        "type": "bool",
+        "id": 23
+      },
+      "analogInput": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 12
+      },
+      "action": {
+        "type": "Action",
+        "id": 13
+      },
+      "fault": {
+        "type": "BhyveAgApi_Fault",
+        "id": 14
+      },
+      "lora": {
+        "type": "BhyveAgApi_Lora_ControlStatus",
+        "id": 15
+      },
+      "tsmValue": {
+        "type": "uint32",
+        "id": 16
+      },
+      "prevDrive": {
+        "type": "Drive",
+        "id": 17
+      },
+      "prevPump": {
+        "type": "PrevPump",
+        "id": 18
+      },
+      "pivotRunTime": {
+        "type": "uint32",
+        "id": 19
+      },
+      "pumpRunTime": {
+        "type": "uint32",
+        "id": 20
+      },
+      "stepProgramMode": {
+        "type": "StepProgramMode",
+        "id": 21
+      },
+      "stepProgramIndex": {
+        "type": "uint32",
+        "id": 22
+      }
+    },
+    "nested": {
+      "ControlMode": {
+        "values": {
+          "panel": 0,
+          "pendingPanel": 1,
+          "remote": 2
+        }
+      },
+      "Drive": {
+        "values": {
+          "stopped": 0,
+          "forward": 1,
+          "reverse": 2,
+          "forward_idle": 3,
+          "reverse_idle": 4,
+          "forward_waitingOnGps": 5,
+          "reverse_waitingOnGps": 6,
+          "forward_waitingOnPressure": 7,
+          "reverse_waitingOnPressure": 8,
+          "forward_waitingAtBarrier": 9,
+          "reverse_waitingAtBarrier": 10,
+          "forward_checkingInducedVoltage": 11,
+          "reverse_checkingInducedVoltage": 12,
+          "forward_waitingOnPump": 13,
+          "reverse_waitingOnPump": 14,
+          "pendingPanelInputs": 15,
+          "drive_unknown": 16,
+          "forward_backToWaitingOnPressure": 17,
+          "reverse_backToWaitingOnPressure": 18
+        }
+      },
+      "Action": {
+        "values": {
+          "faultStop": 0,
+          "physicalAutoReverse": 1,
+          "physicalAutoStop": 2,
+          "virtualAutoReverse": 3,
+          "virutalAutoStop": 4,
+          "location_Stop": 5,
+          "panelControl": 6,
+          "serverControl": 7,
+          "bleControl": 8,
+          "programControl": 9,
+          "panelModeSwitch": 10
+        }
+      },
+      "BarrierMode": {
+        "values": {
+          "mode_disabled": 1,
+          "mode_stop": 2,
+          "mode_reverse": 3
+        }
+      },
+      "PrevPump": {
+        "values": {
+          "dry": 1,
+          "wet": 2
+        }
+      },
+      "StepProgramMode": {
+        "values": {
+          "mode_on": 1,
+          "mode_off": 2
+        }
+      }
+    }
+  },
+  "BhyveAgApi_CPA_StepProgramMode": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "mode": {
+        "rule": "repeated",
+        "type": "Mode",
+        "id": 2
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "program": 2,
+          "onWhenWet": 3
+        }
+      }
+    }
+  },
+  "BhyveAgApi_CP_StepProgramStep": {
+    "edition": "proto2",
+    "fields": {
+      "startPosition": {
+        "type": "float",
+        "id": 1
+      },
+      "endPosition": {
+        "type": "float",
+        "id": 2
+      },
+      "delaySec": {
+        "type": "uint32",
+        "id": 3
+      },
+      "drive": {
+        "type": "Drive",
+        "id": 4
+      },
+      "pump": {
+        "type": "BhyveAgApi_PumpMode",
+        "id": 5
+      },
+      "auxiliaries": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_AuxMode",
+        "id": 6
+      },
+      "speed": {
+        "type": "BhyveAgApi_SpeedMode",
+        "id": 7
+      },
+      "cpas": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_CPA_StepProgramMode",
+        "id": 8
+      }
+    },
+    "nested": {
+      "Drive": {
+        "values": {
+          "stopped": 0,
+          "forward": 1,
+          "reverse": 2
+        }
+      },
+      "CPA_Mode": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "program": 2,
+          "onWhenWet": 3
+        }
+      }
+    }
+  },
+  "BhyveAgApi_CP_StepProgram": {
+    "edition": "proto2",
+    "fields": {
+      "programId": {
+        "type": "bytes",
+        "id": 1
+      },
+      "lastUpdatedTime": {
+        "type": "uint32",
+        "id": 2
+      },
+      "steps": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_CP_StepProgramStep",
+        "id": 3
+      },
+      "loop": {
+        "type": "bool",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_CP_ControlStatusDebug": {
+    "edition": "proto2",
+    "fields": {
+      "pressure": {
+        "type": "uint32",
+        "id": 1
+      },
+      "verboseCpa": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_GetTSMValue": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_timeShutoff": {
+    "edition": "proto2",
+    "fields": {
+      "enabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "timeout": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_PN_Pump": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "macAddress": {
+        "type": "bytes",
+        "id": 2
+      },
+      "mode": {
+        "type": "Mode",
+        "id": 3
+      },
+      "ipAddress": {
+        "type": "uint32",
+        "id": 4
+      },
+      "type": {
+        "type": "Type",
+        "id": 5
+      },
+      "pumpOnPressureThresholdPa": {
+        "type": "float",
+        "id": 6
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "alwaysOn": 0,
+          "alwaysOff": 1,
+          "program": 2
+        }
+      },
+      "Type": {
+        "values": {
+          "primary": 0,
+          "booster": 1
+        }
+      }
+    }
+  },
+  "BhyveAgApi_PN_Pivot": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "hasValve": {
+        "type": "bool",
+        "id": 2
+      },
+      "boosterPumpIds": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_PN_PumpNetworkSettings": {
+    "edition": "proto2",
+    "fields": {
+      "programId": {
+        "type": "bytes",
+        "id": 1
+      },
+      "pumps": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PN_Pump",
+        "id": 2
+      },
+      "pivots": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PN_Pivot",
+        "id": 3
+      },
+      "mainDeviceMacAddress": {
+        "type": "bytes",
+        "id": 4
+      },
+      "mainDeviceIpAddress": {
+        "type": "uint32",
+        "id": 5
+      },
+      "noResponseTimeout": {
+        "type": "BhyveAgApi_timeShutoff",
+        "id": 6
+      }
+    }
+  },
+  "BhyveAgApi_GC_Control": {
+    "edition": "proto2",
+    "fields": {
+      "pumpNetwork": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PN_PumpNetworkSettings",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_PN_SecDevStatus": {
+    "edition": "proto2",
+    "fields": {
+      "pumpEnabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "pressurePa": {
+        "type": "float",
+        "id": 2
+      },
+      "macAddress": {
+        "type": "bytes",
+        "id": 3
+      },
+      "lastCheckTimestamp": {
+        "type": "uint32",
+        "id": 4
+      },
+      "noResponseFault": {
+        "type": "bool",
+        "id": 5
+      },
+      "pumpStatus": {
+        "type": "Status",
+        "id": 6
+      },
+      "pumpId": {
+        "type": "uint32",
+        "id": 7
+      }
+    },
+    "nested": {
+      "Status": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "off_waitingOnPressure": 2,
+          "off_restartDelay": 3,
+          "off_faulted": 4,
+          "on_twoMinuteTransition": 5,
+          "unknown": 6
+        }
+      }
+    }
+  },
+  "BhyveAgApi_PN_SecDevControl": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "pumpEnable": {
+        "type": "bool",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_PN_SecDevSettings": {
+    "edition": "proto2",
+    "fields": {
+      "mainDeviceMacAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "mainDeviceIpAddress": {
+        "type": "uint32",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_PressureSensorType": {
+    "edition": "proto2",
+    "values": {
+      "disabled": 1,
+      "pressureSwitch": 2,
+      "transducer": 3
+    }
+  },
+  "BhyveAgApi_transducerParams": {
+    "edition": "proto2",
+    "fields": {
+      "lowVoltage": {
+        "type": "float",
+        "id": 1
+      },
+      "highVoltage": {
+        "type": "float",
+        "id": 2
+      },
+      "lowPressure": {
+        "type": "uint32",
+        "id": 3
+      },
+      "highPressure": {
+        "type": "uint32",
+        "id": 4
+      },
+      "inputType": {
+        "type": "InputType",
+        "id": 5
+      }
+    },
+    "nested": {
+      "InputType": {
+        "values": {
+          "current": 1,
+          "voltage": 2
+        }
+      }
+    }
+  },
+  "BhyveAgApi_Coordinate": {
+    "edition": "proto2",
+    "fields": {
+      "latitude": {
+        "type": "float",
+        "id": 1
+      },
+      "longitude": {
+        "type": "float",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_shape": {
+    "edition": "proto2",
+    "fields": {
+      "length": {
+        "type": "float",
+        "id": 1
+      },
+      "forwardBarrier": {
+        "type": "float",
+        "id": 2
+      },
+      "reverseBarrier": {
+        "type": "float",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_loraSettings": {
+    "edition": "proto2",
+    "fields": {
+      "region": {
+        "type": "BhyveAgApi_Region",
+        "id": 1
+      },
+      "channel": {
+        "type": "uint32",
+        "id": 2
+      },
+      "spreadingFactor": {
+        "type": "uint32",
+        "id": 3
+      },
+      "powerOutput": {
+        "type": "uint32",
+        "id": 4
+      },
+      "firstChannel": {
+        "type": "uint32",
+        "id": 5
+      }
+    }
+  },
+  "BhyveAgApi_thresholdShutoff": {
+    "edition": "proto2",
+    "fields": {
+      "enabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "threshold": {
+        "type": "uint32",
+        "id": 2
+      },
+      "timeout": {
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_CPA": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "onboarded": {
+        "type": "bool",
+        "id": 2
+      },
+      "gps": {
+        "type": "bool",
+        "id": 3
+      },
+      "hasRepeater": {
+        "type": "bool",
+        "id": 4
+      },
+      "repeaterMacAddress": {
+        "type": "bytes",
+        "id": 5
+      },
+      "pressureAutoRestart": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 15
+      },
+      "pressureSensorType": {
+        "type": "BhyveAgApi_PressureSensorType",
+        "id": 16
+      },
+      "transducer": {
+        "type": "BhyveAgApi_transducerParams",
+        "id": 17
+      },
+      "lowPressureShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 18
+      },
+      "highPressureShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 19
+      },
+      "pressureStartupDelay": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 20
+      },
+      "disconnectShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 21
+      }
+    }
+  },
+  "BhyveAgApi_CPA_Settings": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "purpose": {
+        "type": "Purpose",
+        "id": 2
+      },
+      "gps": {
+        "type": "bool",
+        "id": 3
+      },
+      "onboarded": {
+        "type": "bool",
+        "id": 4
+      },
+      "hasRepeater": {
+        "type": "bool",
+        "id": 5
+      },
+      "repeaterMacAddress": {
+        "type": "bytes",
+        "id": 6
+      },
+      "pressureAutoRestart": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 7
+      },
+      "pressureSensorType": {
+        "type": "BhyveAgApi_PressureSensorType",
+        "id": 8
+      },
+      "transducer": {
+        "type": "BhyveAgApi_transducerParams",
+        "id": 9
+      },
+      "lowPressureShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 10
+      },
+      "highPressureShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 11
+      },
+      "pressureStartupDelay": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 12
+      },
+      "disconnectShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 13
+      },
+      "flowSensorParams": {
+        "type": "BhyveAgApi_FlowSensorParamEntry",
+        "id": 14
+      },
+      "loraSettings": {
+        "type": "BhyveAgApi_loraSettings",
+        "id": 15
+      },
+      "centerLocation": {
+        "type": "BhyveAgApi_Location",
+        "id": 16
+      },
+      "gatewayMacAddress": {
+        "type": "bytes",
+        "id": 17
+      },
+      "factoryDefaults": {
+        "type": "bool",
+        "id": 18
+      }
+    },
+    "nested": {
+      "Purpose": {
+        "values": {
+          "endGun": 0,
+          "remoteCpa": 1
+        }
+      }
+    }
+  },
+  "BhyveAgApi_CP_Settings": {
+    "edition": "proto2",
+    "fields": {
+      "centerLocation": {
+        "type": "BhyveAgApi_Coordinate",
+        "id": 1
+      },
+      "shape": {
+        "type": "BhyveAgApi_shape",
+        "id": 2
+      },
+      "rotationMinutes": {
+        "type": "uint32",
+        "id": 3
+      },
+      "maxPivotSpeed": {
+        "type": "uint32",
+        "id": 4
+      },
+      "pumpRestartDelay": {
+        "type": "BhyveAgApi_timeShutoff",
+        "id": 5
+      },
+      "safetyTimeout": {
+        "type": "uint32",
+        "id": 6
+      },
+      "loraSettings": {
+        "type": "BhyveAgApi_loraSettings",
+        "id": 7
+      },
+      "virtualOverwateringTimer": {
+        "type": "BhyveAgApi_timeShutoff",
+        "id": 8
+      },
+      "gpsWaitMode": {
+        "type": "BhyveAgApi_timeShutoff",
+        "id": 9
+      },
+      "gpsShutoff": {
+        "type": "BhyveAgApi_timeShutoff",
+        "id": 10
+      },
+      "barrierDelay": {
+        "type": "uint32",
+        "id": 11
+      },
+      "powerAutoRestart": {
+        "type": "bool",
+        "id": 12
+      },
+      "pressureAutoRestart": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 13
+      },
+      "pressureSensorType": {
+        "type": "BhyveAgApi_PressureSensorType",
+        "id": 14
+      },
+      "centerTransducer": {
+        "type": "BhyveAgApi_transducerParams",
+        "id": 15
+      },
+      "lowPressureShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 16
+      },
+      "highPressureShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 17
+      },
+      "pressureStartupDelay": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 18
+      },
+      "lowTemperatureShutoff": {
+        "type": "BhyveAgApi_thresholdShutoff",
+        "id": 19
+      },
+      "tsmEnabled": {
+        "type": "bool",
+        "id": 20
+      },
+      "bumpCpaWhenDisconnected": {
+        "type": "bool",
+        "id": 21
+      },
+      "vriProgramModeWhenDry": {
+        "type": "bool",
+        "id": 22
+      },
+      "endGunModeWhenDry": {
+        "type": "bool",
+        "id": 23
+      },
+      "auxProgramModeWhenDry": {
+        "type": "bool",
+        "id": 24
+      },
+      "stoppedSafetyOutOn": {
+        "type": "bool",
+        "id": 25
+      },
+      "cpas": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_CPA_Settings",
+        "id": 26
+      },
+      "statusPeriod": {
+        "type": "uint32",
+        "id": 27
+      },
+      "keepAlivePeriod": {
+        "type": "uint32",
+        "id": 28
+      },
+      "reconnectBackoffTime": {
+        "type": "uint32",
+        "id": 29
+      },
+      "notificationsDegrees": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 30
+      },
+      "pumpNetwork": {
+        "type": "BhyveAgApi_PN_SecDevSettings",
+        "id": 31
+      },
+      "contactorsOnInIdle": {
+        "type": "bool",
+        "id": 32
+      },
+      "allStopIdle": {
+        "type": "bool",
+        "id": 33
+      }
+    }
+  },
+  "BhyveAgApi_CP_MfrTest": {
+    "edition": "proto2",
+    "fields": {
+      "test": {
+        "type": "Test",
+        "id": 1
+      },
+      "operatingMode": {
+        "type": "Test",
+        "id": 2
+      },
+      "relayState": {
+        "rule": "repeated",
+        "type": "bool",
+        "id": 3
+      },
+      "inputState": {
+        "rule": "repeated",
+        "type": "bool",
+        "id": 4
+      },
+      "analogInput": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 5
+      },
+      "relaySelfTest": {
+        "type": "TestStatus",
+        "id": 6
+      }
+    },
+    "nested": {
+      "Test": {
+        "values": {
+          "ble": 0,
+          "continuity": 1,
+          "relays": 3,
+          "inputs": 4,
+          "lora": 5,
+          "pressure": 6,
+          "voltages": 7,
+          "leds": 8,
+          "buttons": 9,
+          "router": 10,
+          "opMode": 11,
+          "complete": 12,
+          "error": 13
+        }
+      },
+      "OperatingMode": {
+        "values": {
+          "normal": 0,
+          "testing": 1
+        }
+      },
+      "TestStatus": {
+        "values": {
+          "notStarted": 0,
+          "inProgress": 1,
+          "passed": 2,
+          "failed": 3
+        }
+      }
+    }
+  },
+  "BhyveAgApi_PumpControl": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 1
+      },
+      "command": {
+        "type": "Pump_Cmd",
+        "id": 2
+      },
+      "timeSec": {
+        "type": "uint32",
+        "id": 3
+      }
+    },
+    "nested": {
+      "Pump_Cmd": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "timed": 2
+        }
+      }
+    }
+  },
+  "BhyveAgApi_flowMeterParams": {
+    "edition": "proto2",
+    "fields": {
+      "kValue": {
+        "type": "float",
+        "id": 1
+      },
+      "offset": {
+        "type": "float",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_CPAStatus": {
+    "edition": "proto2",
+    "fields": {
+      "macAddress": {
+        "type": "bytes",
+        "id": 1
+      },
+      "mode": {
+        "type": "Mode",
+        "id": 29
+      },
+      "roles": {
+        "rule": "repeated",
+        "type": "Role",
+        "id": 2
+      },
+      "linkConnected": {
+        "type": "bool",
+        "id": 3
+      },
+      "moduleConnected": {
+        "type": "bool",
+        "id": 4
+      },
+      "channel": {
+        "type": "int32",
+        "id": 5
+      },
+      "spreadingFactor": {
+        "type": "uint32",
+        "id": 6
+      },
+      "powerOutput": {
+        "type": "uint32",
+        "id": 7
+      },
+      "bandWidth": {
+        "type": "uint32",
+        "id": 8
+      },
+      "region": {
+        "type": "BhyveAgApi_Region",
+        "id": 9
+      },
+      "firstChannel": {
+        "type": "uint32",
+        "id": 10
+      },
+      "rssi": {
+        "type": "int32",
+        "id": 11
+      },
+      "snr": {
+        "type": "int32",
+        "id": 12
+      },
+      "highVoltageOutput": {
+        "rule": "repeated",
+        "type": "bool",
+        "id": 13
+      },
+      "controlMode": {
+        "type": "ControlMode",
+        "id": 14
+      },
+      "location": {
+        "type": "BhyveAgApi_Location",
+        "id": 15
+      },
+      "centerLocation": {
+        "type": "BhyveAgApi_Location",
+        "id": 16
+      },
+      "fwVersion": {
+        "type": "bytes",
+        "id": 17
+      },
+      "hwVersion": {
+        "type": "bytes",
+        "id": 18
+      },
+      "murataFwVersion": {
+        "type": "bytes",
+        "id": 25
+      },
+      "status": {
+        "type": "Status",
+        "id": 19
+      },
+      "secSinceLastMsg": {
+        "type": "uint32",
+        "id": 20
+      },
+      "gatewayMacAddress": {
+        "type": "bytes",
+        "id": 21
+      },
+      "factoryDefaults": {
+        "type": "bool",
+        "id": 22
+      },
+      "position": {
+        "type": "float",
+        "id": 23
+      },
+      "adc": {
+        "type": "uint32",
+        "id": 24
+      },
+      "gallons": {
+        "type": "uint32",
+        "id": 26
+      },
+      "onboarded": {
+        "type": "bool",
+        "id": 28
+      },
+      "flowMeterParams": {
+        "type": "BhyveAgApi_flowMeterParams",
+        "id": 27
+      }
+    },
+    "nested": {
+      "Mode": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "program": 2
+        }
+      },
+      "Role": {
+        "values": {
+          "endGun": 0,
+          "gps": 1
+        }
+      },
+      "ControlMode": {
+        "values": {
+          "panel": 0,
+          "remote": 1
+        }
+      },
+      "Status": {
+        "values": {
+          "state_idle": 0,
+          "state_channelSelect": 1,
+          "state_checkStatus": 2,
+          "state_unknown": 3
+        }
+      }
+    }
+  },
+  "BhyveAgApi_PressureCfgEntry": {
+    "edition": "proto2",
+    "fields": {
+      "transducerId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "highPressureFaultThresholdPa": {
+        "type": "float",
+        "id": 2
+      },
+      "highPressureAlertThresholdPa": {
+        "type": "float",
+        "id": 3
+      },
+      "lowPressureAlertThresholdPa": {
+        "type": "float",
+        "id": 4
+      },
+      "lowPressureFaultThresholdPa": {
+        "type": "float",
+        "id": 5
+      }
+    }
+  },
+  "BhyveAgApi_FlowMeterCfg": {
+    "edition": "proto2",
+    "fields": {
+      "highFlowAlertThresholdGpm": {
+        "type": "float",
+        "id": 1
+      },
+      "lowFlowAlertThresholdGpm": {
+        "type": "float",
+        "id": 2
+      },
+      "highFlowFaultThresholdGpm": {
+        "type": "float",
+        "id": 3
+      },
+      "lowFlowFaultThresholdGpm": {
+        "type": "float",
+        "id": 4
+      },
+      "pipeFillTimeSec": {
+        "type": "uint32",
+        "id": 5
+      },
+      "flowAlertThresholdPercent": {
+        "type": "float",
+        "id": 6
+      },
+      "flowFaultThresholdPercent": {
+        "type": "float",
+        "id": 7
+      }
+    }
+  },
+  "BhyveAgApi_TemperatureCfg": {
+    "edition": "proto2",
+    "fields": {
+      "lowTemperatureFaultThreshC": {
+        "type": "int32",
+        "id": 1
+      },
+      "temperaturePumpRestartThreshC": {
+        "type": "int32",
+        "id": 2
+      },
+      "temperatureFaultHoldTimeSec": {
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_LineVoltageCfg": {
+    "edition": "proto2",
+    "fields": {
+      "lowLineVoltageFaultThreshVac": {
+        "type": "uint32",
+        "id": 1
+      },
+      "highLineVoltageFaultThreshVac": {
+        "type": "uint32",
+        "id": 2
+      },
+      "lineVoltageFaultHoldTimeSec": {
+        "type": "uint32",
+        "id": 3
+      }
+    }
+  },
+  "BhyveAgApi_PumpCfgEntry": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "pressureBuildTimeSec": {
+        "type": "uint32",
+        "id": 2
+      },
+      "restartDelay": {
+        "type": "BhyveAgApi_timeShutoff",
+        "id": 3
+      },
+      "pressureCfgEntries": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PressureCfgEntry",
+        "id": 4
+      },
+      "powerAutoRestart": {
+        "type": "bool",
+        "id": 5
+      },
+      "flowMeterCfg": {
+        "type": "BhyveAgApi_FlowMeterCfg",
+        "id": 6
+      },
+      "temperatureCfg": {
+        "type": "BhyveAgApi_TemperatureCfg",
+        "id": 7
+      },
+      "lineVoltageCfg": {
+        "type": "BhyveAgApi_LineVoltageCfg",
+        "id": 8
+      },
+      "noVoltageInputDetectAlertEnable": {
+        "type": "bool",
+        "id": 9
+      }
+    }
+  },
+  "BhyveAgApi_TransducerParamsEntry": {
+    "edition": "proto2",
+    "fields": {
+      "lowVoltage": {
+        "type": "float",
+        "id": 1
+      },
+      "highVoltage": {
+        "type": "float",
+        "id": 2
+      },
+      "lowPressure": {
+        "type": "uint32",
+        "id": 3
+      },
+      "highPressure": {
+        "type": "uint32",
+        "id": 4
+      },
+      "inputType": {
+        "type": "InputType",
+        "id": 5
+      },
+      "transducerId": {
+        "type": "uint32",
+        "id": 6
+      }
+    },
+    "nested": {
+      "InputType": {
+        "values": {
+          "current": 1,
+          "voltage": 2
+        }
+      }
+    }
+  },
+  "BhyveAgApi_GC_GetStatus": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_Flush": {
+    "edition": "proto2",
+    "fields": {
+      "command": {
+        "type": "Cmd",
+        "id": 1
+      }
+    },
+    "nested": {
+      "Cmd": {
+        "values": {
+          "start": 0,
+          "stop": 1
+        }
+      }
+    }
+  },
+  "BhyveAgApi_FlushStatus": {
+    "edition": "proto2",
+    "fields": {
+      "status": {
+        "type": "Status",
+        "id": 1
+      },
+      "reason": {
+        "type": "Reason",
+        "id": 2
+      },
+      "filterNum": {
+        "type": "uint32",
+        "id": 3
+      },
+      "differentialPressure": {
+        "type": "float",
+        "id": 4
+      },
+      "secToNextFlush": {
+        "type": "uint32",
+        "id": 5
+      },
+      "remainingTimeSec": {
+        "type": "uint32",
+        "id": 6
+      }
+    },
+    "nested": {
+      "Status": {
+        "values": {
+          "idle": 0,
+          "flushing": 1,
+          "recharging": 2,
+          "sustainingValve": 3,
+          "pendingFlush": 4
+        }
+      },
+      "Reason": {
+        "values": {
+          "manual_btn": 0,
+          "manual_ble": 1,
+          "manual_server": 2,
+          "pressure": 3,
+          "time": 4
+        }
+      }
+    }
+  },
+  "BhyveAgApi_GC_Status": {
+    "edition": "proto2",
+    "fields": {
+      "temperatureC": {
+        "type": "float",
+        "id": 1
+      },
+      "gridVoltage": {
+        "type": "float",
+        "id": 2
+      },
+      "highVoltageInput": {
+        "rule": "repeated",
+        "type": "bool",
+        "id": 3
+      },
+      "flowMeterTotalsGal": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 4
+      },
+      "flowRateGpm": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 5
+      },
+      "analogInput": {
+        "rule": "repeated",
+        "type": "float",
+        "id": 6
+      },
+      "flushStatus": {
+        "type": "BhyveAgApi_FlushStatus",
+        "id": 7
+      },
+      "faultStatus": {
+        "type": "BhyveAgApi_GC_FaultStatus",
+        "id": 8
+      },
+      "pumpStatus": {
+        "rule": "repeated",
+        "type": "PumpStatus",
+        "id": 9
+      },
+      "secDeviceStatus": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PN_SecDevStatus",
+        "id": 10
+      }
+    },
+    "nested": {
+      "PumpStatus": {
+        "values": {
+          "off": 0,
+          "on": 1,
+          "off_restartDelay": 2,
+          "off_waitingOnPressure": 3,
+          "off_faulted": 4
+        }
+      }
+    }
+  },
+  "BhyveAgApi_Flush_Settings": {
+    "edition": "proto2",
+    "fields": {
+      "enabled": {
+        "type": "bool",
+        "id": 1
+      },
+      "stationIds": {
+        "rule": "repeated",
+        "type": "uint32",
+        "id": 2
+      },
+      "minPressurePa": {
+        "type": "float",
+        "id": 3
+      },
+      "sustainingValvePredwellSec": {
+        "type": "uint32",
+        "id": 4
+      },
+      "sustainingValveStationId": {
+        "type": "uint32",
+        "id": 5
+      },
+      "timeIntervalEnable": {
+        "type": "bool",
+        "id": 6
+      },
+      "timeIntervalPeriodSec": {
+        "type": "uint32",
+        "id": 7
+      },
+      "flushTimeSec": {
+        "type": "uint32",
+        "id": 8
+      },
+      "rechargeTimeSec": {
+        "type": "uint32",
+        "id": 9
+      },
+      "differentialEnable": {
+        "type": "bool",
+        "id": 10
+      },
+      "differentialPressurePa": {
+        "type": "uint32",
+        "id": 11
+      },
+      "rotateFirstFilter": {
+        "type": "bool",
+        "id": 12
+      },
+      "flushLoopCyclesMax": {
+        "type": "uint32",
+        "id": 13
+      },
+      "betweenFlushLoopCyclesSec": {
+        "type": "uint32",
+        "id": 14
+      }
+    }
+  },
+  "BhyveAgApi_GC_Settings": {
+    "edition": "proto2",
+    "fields": {
+      "pumps": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PumpCfgEntry",
+        "id": 1
+      },
+      "transducers": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_TransducerParamsEntry",
+        "id": 2
+      },
+      "flowMeters": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_FlowSensorParamEntry",
+        "id": 3
+      },
+      "flushing": {
+        "type": "BhyveAgApi_Flush_Settings",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_Unavailable": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_FaultType_NoFlow": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_FaultType_HighFlow": {
+    "edition": "proto2",
+    "fields": {
+      "flowGpm": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_LowFlow": {
+    "edition": "proto2",
+    "fields": {
+      "flowGpm": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_HighPressure": {
+    "edition": "proto2",
+    "fields": {
+      "transducerId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "pressurePa": {
+        "type": "float",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_LowPressure": {
+    "edition": "proto2",
+    "fields": {
+      "transducerId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "pressurePa": {
+        "type": "float",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_HighTemperature": {
+    "edition": "proto2",
+    "fields": {
+      "temperatureC": {
+        "type": "float",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_LowTemperature": {
+    "edition": "proto2",
+    "fields": {
+      "temperatureC": {
+        "type": "float",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_HighGridVoltage": {
+    "edition": "proto2",
+    "fields": {
+      "temperatureC": {
+        "type": "float",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_LowGridVoltage": {
+    "edition": "proto2",
+    "fields": {
+      "temperatureC": {
+        "type": "float",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_NoResponse": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_FaultType_FlushLoop": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_FaultType_BrownOut": {
+    "edition": "proto2",
+    "fields": {}
+  },
+  "BhyveAgApi_FaultType_UnscheduledFlow": {
+    "edition": "proto2",
+    "fields": {
+      "flowGpm": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_FaultType_NoSolenoid": {
+    "edition": "proto2",
+    "fields": {
+      "flowGpm": {
+        "type": "uint32",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_PumpFault": {
+    "edition": "proto2",
+    "fields": {
+      "pumpId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timestampSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "unavailable": {
+        "type": "BhyveAgApi_FaultType_Unavailable",
+        "id": 3
+      },
+      "highFlow": {
+        "type": "BhyveAgApi_FaultType_HighFlow",
+        "id": 4
+      },
+      "lowFlow": {
+        "type": "BhyveAgApi_FaultType_LowFlow",
+        "id": 5
+      },
+      "highFlowAlarm": {
+        "type": "BhyveAgApi_FaultType_HighFlow",
+        "id": 6
+      },
+      "lowFlowAlarm": {
+        "type": "BhyveAgApi_FaultType_LowFlow",
+        "id": 7
+      },
+      "highPressure": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_FaultType_HighPressure",
+        "id": 8
+      },
+      "lowPressure": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_FaultType_LowPressure",
+        "id": 9
+      },
+      "highPressureAlarm": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_FaultType_HighPressure",
+        "id": 10
+      },
+      "lowPressureAlarm": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_FaultType_LowPressure",
+        "id": 11
+      },
+      "lowTemperature": {
+        "type": "BhyveAgApi_FaultType_LowTemperature",
+        "id": 12
+      },
+      "highTemperature": {
+        "type": "BhyveAgApi_FaultType_HighTemperature",
+        "id": 13
+      },
+      "lowGridVoltage": {
+        "type": "BhyveAgApi_FaultType_LowGridVoltage",
+        "id": 14
+      },
+      "highGridVoltage": {
+        "type": "BhyveAgApi_FaultType_HighGridVoltage",
+        "id": 15
+      },
+      "noResponse": {
+        "type": "BhyveAgApi_FaultType_NoResponse",
+        "id": 16
+      }
+    }
+  },
+  "BhyveAgApi_StationFault": {
+    "edition": "proto2",
+    "fields": {
+      "stationId": {
+        "type": "uint32",
+        "id": 1
+      },
+      "timestampSecEpochUtc": {
+        "type": "uint32",
+        "id": 2
+      },
+      "unavailable": {
+        "type": "BhyveAgApi_FaultType_Unavailable",
+        "id": 3
+      },
+      "noSolenoid": {
+        "type": "BhyveAgApi_FaultType_NoSolenoid",
+        "id": 4
+      },
+      "noFlow": {
+        "type": "BhyveAgApi_FaultType_NoFlow",
+        "id": 5
+      },
+      "highFlow": {
+        "type": "BhyveAgApi_FaultType_HighFlow",
+        "id": 6
+      },
+      "lowFlow": {
+        "type": "BhyveAgApi_FaultType_LowFlow",
+        "id": 7
+      },
+      "unscheduledFlow": {
+        "type": "BhyveAgApi_FaultType_UnscheduledFlow",
+        "id": 8
+      }
+    }
+  },
+  "BhyveAgApi_GC_FaultStatus": {
+    "edition": "proto2",
+    "fields": {
+      "pumpFaults": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_PumpFault",
+        "id": 1
+      },
+      "stationFaults": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_StationFault",
+        "id": 2
+      },
+      "flushLoop": {
+        "type": "BhyveAgApi_FaultType_FlushLoop",
+        "id": 3
+      },
+      "brownOut": {
+        "type": "BhyveAgApi_FaultType_BrownOut",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_WaterTotals": {
+    "edition": "proto2",
+    "fields": {
+      "dailyTotalGallons": {
+        "rule": "repeated",
+        "type": "uint64",
+        "id": 1
+      },
+      "lifetimeTotalThousandGals": {
+        "rule": "repeated",
+        "type": "uint64",
+        "id": 2
+      }
+    }
+  },
+  "BhyveAgApi_GetLog": {
+    "edition": "proto2",
+    "fields": {
+      "logId": {
+        "type": "BhyveAgApi_LogId",
+        "id": 1
+      },
+      "lastLogTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 2
+      },
+      "lastLogIndex": {
+        "type": "uint32",
+        "id": 3
+      }
+    },
+    "nested": {
+      "BhyveAgApi_LogId": {
+        "values": {
+          "statusLog": 0,
+          "waterTotalLog": 1
+        }
+      }
+    }
+  },
+  "BhyveAgApi_LogEntry": {
+    "edition": "proto2",
+    "oneofs": {
+      "message": {
+        "oneof": [
+          "statusLogEntry",
+          "waterTotalsLogEntry"
+        ]
+      }
+    },
+    "fields": {
+      "logTimeSecEpochUTC": {
+        "type": "uint32",
+        "id": 1
+      },
+      "logIndex": {
+        "type": "uint32",
+        "id": 2
+      },
+      "statusLogEntry": {
+        "type": "BhyveAgApi_GC_Status",
+        "id": 3
+      },
+      "waterTotalsLogEntry": {
+        "type": "BhyveAgApi_WaterTotals",
+        "id": 4
+      }
+    }
+  },
+  "BhyveAgApi_Log": {
+    "edition": "proto2",
+    "fields": {
+      "logEntry": {
+        "rule": "repeated",
+        "type": "BhyveAgApi_LogEntry",
+        "id": 1
+      }
+    }
+  },
+  "BhyveAgApi_HTTP_RequestResponse": {
+    "edition": "proto2",
+    "fields": {
+      "ipv4AddressRev": {
+        "type": "uint32",
+        "id": 1
+      },
+      "port": {
+        "type": "uint32",
+        "id": 2
+      },
+      "https": {
+        "type": "bool",
+        "id": 3
+      },
+      "data": {
+        "type": "string",
+        "id": 4
+      },
+      "moreData": {
+        "type": "bool",
+        "id": 5
+      },
+      "subString": {
+        "rule": "repeated",
+        "type": "string",
+        "id": 6
+      },
+      "receiveTimeoutMs": {
+        "type": "uint32",
+        "id": 7
+      },
+      "ack": {
+        "type": "bool",
+        "id": 8
+      },
+      "error": {
+        "type": "Error",
+        "id": 9
+      }
+    },
+    "nested": {
+      "Error": {
+        "values": {
+          "failedOpeningSocket": 0
+        }
+      }
+    }
+  }
+}
