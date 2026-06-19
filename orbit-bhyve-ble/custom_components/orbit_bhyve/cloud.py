@@ -49,7 +49,10 @@ class OrbitCloudClient:
         return self._user_id
 
     def _headers(self, *, include_auth: bool = True) -> dict[str, str]:
-        h = {"orbit-app-id": CLOUD_APP_ID}
+        h = {
+            "orbit-app-id": CLOUD_APP_ID,
+            "User-Agent": "Bhyve/3.0 (Android)",
+        }
         if include_auth and self._token:
             h["orbit-api-key"] = self._token
         return h
