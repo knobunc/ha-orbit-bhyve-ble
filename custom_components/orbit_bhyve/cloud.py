@@ -64,16 +64,28 @@ class OrbitCloudClient:
                 timeout=aiohttp.ClientTimeout(total=20),
             ) as resp:
                 if resp.status in (400, 401, 403):
-                    raise CloudAuthError(f"login rejected (HTTP {resp.status})")
+                    body = await resp.text()
+                    _LOGGER.error(
+                        "Orbit login HTTP %d: %s", resp.status, body,
+                    )
+                    raise CloudAuthError(f"login rejected (HTTP {resp.status}): {body}")
                 resp.raise_for_status()
                 body = await resp.json()
+        except CloudAuthError:
+            raise
         except aiohttp.ClientError as err:
+            _LOGGER.error("Orbit login connection error: %s", err)
             raise CloudConnectionError(str(err)) from err
 
         self._token = body.get("orbit_api_key")
         self._user_id = body.get("user_id")
         if not self._token:
+            _LOGGER.error(
+                "Orbit login: no orbit_api_key in response: %s",
+                {k: v for k, v in body.items() if k != "password"},
+            )
             raise CloudAuthError("login succeeded but no orbit_api_key in response")
+        _LOGGER.debug("Orbit login OK: user_id=%s", self._user_id)
         return body
 
     async def list_devices(self) -> list[dict[str, Any]]:
