@@ -129,9 +129,9 @@ class BHyveBleConnection:
         # haven't been using.
         try:
             for service in self._client.services:
-                _LOGGER.info("%s: gatt svc %s", self.mac, service.uuid)
+                _LOGGER.debug("%s: gatt svc %s", self.mac, service.uuid)
                 for char in service.characteristics:
-                    _LOGGER.info(
+                    _LOGGER.debug(
                         "%s:   char %s props=%s",
                         self.mac, char.uuid, list(char.properties),
                     )
@@ -153,7 +153,7 @@ class BHyveBleConnection:
             return
         try:
             pt = self.decrypt(frame)
-            _LOGGER.info(
+            _LOGGER.debug(
                 "%s: notif pt=%s (ct=%s)",
                 self.mac, pt.hex(), frame.hex(),
             )
